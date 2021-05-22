@@ -207,8 +207,8 @@ var handleTelemetryModalOptOut = function handleTelemetryModalOptOut() {
     
     backpackVisible: true,
     
-    showComingSoon: true,
-    backpackHost: backpackHost,
+    showComingSoon: false,
+    backpackHost: true,
     canSave: true,
     onClickLogo: onClickLogo
   }), appTarget);
