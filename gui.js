@@ -149,7 +149,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 
 var onClickLogo = function onClickLogo() {
-  window.location = 'https://scratch.mit.edu';
+  window.location = 'main.html';
 };
 
 var handleTelemetryModalCancel = function handleTelemetryModalCancel() {
@@ -199,15 +199,15 @@ var handleTelemetryModalOptOut = function handleTelemetryModalOptOut() {
   simulateScratchDesktop ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(WrappedGui, {
     isScratchDesktop: true,
     showTelemetryModal: true,
-    canSave: false,
+    canSave: true,
     onTelemetryModalCancel: handleTelemetryModalCancel,
     onTelemetryModalOptIn: handleTelemetryModalOptIn,
     onTelemetryModalOptOut: handleTelemetryModalOptOut
   }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(WrappedGui, {
     backpackVisible: true,
-    showComingSoon: true,
+    showComingSoon: false,
     backpackHost: backpackHost,
-    canSave: false,
+    canSave: true,
     onClickLogo: onClickLogo
   }), appTarget);
 });
