@@ -32,7 +32,7 @@ export default [
         extensionId: 'griffpatch',
         // collaborator: 'Griffpatch',
         iconURL: physicsImage,
-        insetIconURL: wedoMenuImage,
+        insetIconURL:https://tinyurl.com/f4h5y5pk,
         description: (
             <FormattedMessage
                 defaultMessage="Box2D Physics extension."
