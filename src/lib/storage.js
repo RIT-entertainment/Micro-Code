@@ -41,13 +41,13 @@ class Storage extends ScratchStorage {
     getProjectCreateConfig () {
         return {
             url: "https://reeceypie.github.io/Micro-Code/data.accdb",
-            withCredentials: false
+            withCredentials: true
         };
     }
     getProjectUpdateConfig (projectAsset) {
         return {
             url: `${this.projectHost}/${projectAsset.assetId}`,
-            withCredentials: false
+            withCredentials: true
         };
     }
     setAssetHost (assetHost) {
