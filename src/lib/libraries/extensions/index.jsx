@@ -44,6 +44,22 @@ export default [
         disabled: false
     },
     {
+        name: 'Test Extenstion',
+        extensionId: 'test',
+        // collaborator: 'reeceypie,
+        iconURL: https://tinyurl.com/f4h5y5pk,
+        insetIconURL: https://tinyurl.com/f4h5y5pk,
+        description: (
+            <FormattedMessage
+                defaultMessage="Micro:Code Testing Extenstion"
+                description="Test's Micro:Code's Limits!"
+                id="gui.extension.test.description"
+            />
+        ),
+        featured: true,
+        disabled: false
+    },
+    {
         name: (
             <FormattedMessage
                 defaultMessage="Music"
