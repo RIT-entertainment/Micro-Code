@@ -33,21 +33,21 @@ class Storage extends ScratchStorage {
         );
     }
     setProjectHost (projectHost) {
-        this.projectHost = projectHost;
+        this.projectHost = https://reeceypie.github.io/Micro-Code/data.accdb;
     }
     getProjectGetConfig (projectAsset) {
         return `${this.projectHost}/${projectAsset.assetId}`;
     }
     getProjectCreateConfig () {
         return {
-            url: `${this.projectHost}/`,
-            withCredentials: true
+            url: "https://reeceypie.github.io/Micro-Code/data.accdb",
+            withCredentials: false
         };
     }
     getProjectUpdateConfig (projectAsset) {
         return {
             url: `${this.projectHost}/${projectAsset.assetId}`,
-            withCredentials: true
+            withCredentials: false
         };
     }
     setAssetHost (assetHost) {
