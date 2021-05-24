@@ -10,7 +10,6 @@ import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
 import CommunityButton from './community-button.jsx';
 import ShareButton from './share-button.jsx';
-import {ComingSoonTooltip} from '../coming-soon/coming-soon.jsx';
 import Divider from '../divider/divider.jsx';
 import LanguageSelector from '../../containers/language-selector.jsx';
 import SaveStatus from './save-status.jsx';
@@ -77,7 +76,7 @@ const ariaMessages = defineMessages({
     },
     tutorials: {
         id: 'gui.menuBar.tutorialsLibrary',
-        defaultMessage: 'Tutorials',
+        defaultMessage: 'Starter Projects',
         description: 'accessibility text for the tutorials button'
     }
 });
@@ -97,14 +96,8 @@ const MenuBarItemTooltip = ({
         );
     }
     return (
-        <ComingSoonTooltip
-            className={classNames(styles.comingSoon, className)}
-            place={place}
-            tooltipClassName={styles.comingSoonTooltip}
-            tooltipId={id}
-        >
-            {children}
-        </ComingSoonTooltip>
+       
+         
     );
 };
 
@@ -118,15 +111,7 @@ MenuBarItemTooltip.propTypes = {
 };
 
 const MenuItemTooltip = ({id, isRtl, children, className}) => (
-    <ComingSoonTooltip
-        className={classNames(styles.comingSoon, className)}
-        isRtl={isRtl}
-        place={isRtl ? 'left' : 'right'}
-        tooltipClassName={styles.comingSoonTooltip}
-        tooltipId={id}
-    >
-        {children}
-    </ComingSoonTooltip>
+   
 );
 
 MenuItemTooltip.propTypes = {
@@ -347,7 +332,7 @@ class MenuBar extends React.Component {
                             onMouseUp={this.props.onClickFile}
                         >
                             <FormattedMessage
-                                defaultMessage="File"
+                                defaultMessage="More"
                                 description="Text for file dropdown menu"
                                 id="gui.menuBar.file"
                             />
@@ -638,25 +623,7 @@ class MenuBar extends React.Component {
                     ) : (
                         // ******** no login session is available, so don't show login stuff
                         <React.Fragment>
-                            <div className={classNames(styles.menuBarItem, styles.feedbackButtonWrapper)}>
-                                <a
-                                    className={styles.feedbackLink}
-                                    href="https://scratch.mit.edu/discuss/topic/312261/"
-                                    rel="noopener noreferrer"
-                                    target="_blank"
-                                >
-                                    <Button
-                                        className={styles.feedbackButton}
-                                        iconSrc={feedbackIcon}
-                                    >
-                                        <FormattedMessage
-                                            defaultMessage="Give Feedback"
-                                            description="Label for feedback form modal button"
-                                            id="gui.menuBar.giveFeedback"
-                                        />
-                                    </Button>
-                                </a>
-                            </div>
+                            
                             {this.props.showComingSoon ? (
                                 <React.Fragment>
                                     <MenuBarItemTooltip id="mystuff">
@@ -689,7 +656,7 @@ class MenuBar extends React.Component {
                                                 src={profileIcon}
                                             />
                                             <span>
-                                                {'scratch-cat'}
+                                                {'Username'}
                                             </span>
                                             <img
                                                 className={styles.dropdownCaretIcon}
@@ -794,11 +761,11 @@ const mapDispatchToProps = dispatch => ({
     onRequestCloseEdit: () => dispatch(closeEditMenu()),
     onClickLanguage: () => dispatch(openLanguageMenu()),
     onRequestCloseLanguage: () => dispatch(closeLanguageMenu()),
-    onClickLogin: () => dispatch(openLoginMenu()),
+    onClickLogin: () => dispatch(openLoginMenu(true)),
     onRequestCloseLogin: () => dispatch(closeLoginMenu()),
     onClickNew: needSave => dispatch(requestNewProject(needSave)),
-    onClickRemix: () => dispatch(remixProject()),
-    onClickSave: () => dispatch(manualUpdateProject()),
+    onClickRemix: () => dispatch(remixProject(true)),
+    onClickSave: () => dispatch(manualUpdateProject(true)),
     onClickSaveAsCopy: () => dispatch(saveProjectAsCopy()),
     onSeeCommunity: () => dispatch(setPlayer(true))
 });
