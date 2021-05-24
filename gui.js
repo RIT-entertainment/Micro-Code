@@ -207,7 +207,7 @@ var handleTelemetryModalOptOut = function handleTelemetryModalOptOut() {
     
     backpackVisible: true,
     
-    showComingSoon: false,
+    showComingSoon: true,
     backpackHost: true,
     canSave: true,
     onClickLogo: onClickLogo
