@@ -377,7 +377,7 @@ class MenuBar extends React.Component {
                                                 onClick={loadProject}
                                             >
                                                 <FormattedMessage
-                                                    defaultMessage="Load from your computer"
+                                                    defaultMessage="Load"
                                                     description={
                                                         'Menu bar item for uploading a project from your computer'
                                                     }
@@ -393,7 +393,7 @@ class MenuBar extends React.Component {
                                             onClick={this.handleCloseFileMenuAndThen(downloadProject)}
                                         >
                                             <FormattedMessage
-                                                defaultMessage="Save to your computer"
+                                                defaultMessage="Download"
                                                 description="Menu bar item for downloading a project to your computer"
                                                 id="gui.menuBar.downloadToComputer"
                                             />
@@ -434,13 +434,13 @@ class MenuBar extends React.Component {
                                         <MenuItem onClick={toggleTurboMode}>
                                             {turboMode ? (
                                                 <FormattedMessage
-                                                    defaultMessage="Turn off Turbo Mode"
+                                                    defaultMessage="Turn off TURBO"
                                                     description="Menu bar item for turning off turbo mode"
                                                     id="gui.menuBar.turboModeOff"
                                                 />
                                             ) : (
                                                 <FormattedMessage
-                                                    defaultMessage="Turn on Turbo Mode"
+                                                    defaultMessage="Turn on TURBO"
                                                     description="Menu bar item for turning on turbo mode"
                                                     id="gui.menuBar.turboModeOn"
                                                 />
