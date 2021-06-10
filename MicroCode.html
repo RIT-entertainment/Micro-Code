@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)https://makecode.microbit.org/# -->
+<html lang="en" manifest="/---manifest" data-framework="typescript"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style id="blockly-renderer-style-pxt">.pxt-renderer .blocklyText {
+cursor: default;
+fill: #fff;
+font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace;
+font-size: 12pt;
+font-weight: 600;
+}
+.pxt-renderer .blocklyNonEditableText>rect:not(.blocklyDropdownRect),
+.pxt-renderer .blocklyEditableText>rect:not(.blocklyDropdownRect) {
+fill: #fff;
+}
+.pxt-renderer .blocklyNonEditableText>text,
+.pxt-renderer .blocklyEditableText>text,
+.pxt-renderer .blocklyNonEditableText>g>text,
+.pxt-renderer .blocklyEditableText>g>text {
+fill: #575E75;
+}
+.pxt-renderer .blocklyDraggable:not(.blocklyDisabled)
+ .blocklyEditableText:not(.editing):hover>rect ,
+.pxt-renderer .blocklyDraggable:not(.blocklyDisabled)
+ .blocklyEditableText:not(.editing):hover>.blocklyPath {
+stroke: #fff;
+stroke-width: 2;
+}
+.pxt-renderer .blocklyHtmlInput {
+font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace;
+font-weight: 600;
+color: #575E75;
+}
+.pxt-renderer .blocklyDropdownText {
+fill: #fff !important;
+}
+.pxt-renderer.blocklyWidgetDiv .goog-menuitem,
+.pxt-renderer.blocklyDropDownDiv .goog-menuitem {
+font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace;
+}
+.pxt-renderer.blocklyDropDownDiv .goog-menuitem-content {
+color: #fff;
+}
+.pxt-renderer .blocklyHighlightedConnectionPath {
+stroke: #fff200;
+}
+.pxt-renderer .blocklyDisabled > .blocklyOutlinePath {
+fill: url(#blocklyDisabledPattern7648434397332475)
+}
+.pxt-renderer .blocklyConnectionIndicator, .pxt-renderer .blocklyInputConnectionIndicator {
+fill: #ff0000;
+fill-opacity: 0.9;
+stroke: #ffff00;
+stroke-width: 3px;
+}
+.pxt-renderer .blocklyConnectionIndicator {
+display: none;
+}
+.pxt-renderer .blocklyBlockDragSurface > g > .blocklyDraggable > .blocklyConnectionIndicator {
+display: block;
+}
+.pxt-renderer .blocklyConnectionLine {
+stroke: #ffff00;
+stroke-width: 4px;
+}
+.pxt-renderer .blocklyConnectionLine.hidden {
+display: none;
+}</style><style id="blockly-common-style">.blocklySvg {
+background-color: #F9F9F9;
+outline: none;
+overflow: hidden;
+position: absolute;
+display: block;
+touch-action: none;
+}
+.blocklyRelativeWrapper {
+position: relative;
+width: 100%;
+height: 100%;
+}
+.blocklyWidgetDiv {
+display: none;
+position: absolute;
+z-index: 99999;
+}
+.injectionDiv {
+height: 100%;
+position: relative;
+overflow: hidden;
+touch-action: none;
+}
+.blocklyWidgetDiv.fieldTextInput {
+overflow: hidden;
+border: 1px solid;
+box-sizing: border-box;
+transform-origin: 0 0;
+-ms-transform-origin: 0 0;
+-moz-transform-origin: 0 0;
+-webkit-transform-origin: 0 0;
+}
+.blocklyTextDropDownArrow {
+position: absolute;
+}
+.blocklyNonSelectable {
+user-select: none;
+-ms-user-select: none;
+-webkit-user-select: none;
+}
+.blocklyWsDragSurface {
+display: none;
+position: absolute;
+top: 0;
+left: 0;
+touch-action: none;
+cursor: move;
+}
+.blocklyWsDragSurface.blocklyOverflowVisible {
+overflow: visible;
+}
+.blocklyWsDragSurface.blocklyOverflowVisible {
+overflow: visible;
+}
+.blocklyBlockDragSurface {
+display: none;
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+overflow: visible !important;
+z-index: 50;
+}
+.blocklyBlockCanvas.blocklyTransitioning {
+transition: all 0.5s ease-in-out;
+}
+.blocklyBlockCanvas.blocklyCanvasTransitioning,
+.blocklyBubbleCanvas.blocklyCanvasTransitioning {
+transition: transform .5s;
+}
+.blocklyTooltipDiv {
+background-color: #ffffc7;
+border: 1px solid #ddc;
+box-shadow: 4px 4px 20px 1px rgba(0,0,0,.15);
+color: #000;
+display: none;
+font-family: "Helvetica Neue", "Segoe UI", Helvetica, sans-serif;
+font-size: 9pt;
+opacity: .9;
+padding: 2px;
+position: absolute;
+z-index: 100000;
+}
+.blocklyDropDownDiv {
+position: absolute;
+left: 0;
+top: 0;
+z-index: 1000;
+display: none;
+border: 1px solid;
+border-color: #dadce0;
+background-color: #fff;
+border-radius: 2px;
+box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, .3);
+padding: 4px;
+box-shadow: 0px 0px 3px 1px rgba(0,0,0,.3);
+}
+.blocklyDropDownDiv.focused {
+box-shadow: 0px 0px 6px 1px rgba(0,0,0,.3);
+}
+.blocklyDropDownContent {
+max-height: 300px;
+overflow: auto;
+overflow-x: hidden;
+}
+.blocklyDropDownArrow {
+position: absolute;
+left: 0;
+top: 0;
+width: 16px;
+height: 16px;
+z-index: -1;
+background-color: inherit;
+border-color: inherit;
+}
+.blocklyDropDownButton {
+display: inline-block;
+float: left;
+padding: 0;
+margin: 4px;
+border-radius: 4px;
+outline: none;
+border: 1px solid;
+transition: box-shadow .1s;
+cursor: pointer;
+}
+.blocklyDropDownButtonHover {
+box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.2);
+}
+.blocklyDropDownButton:active {
+box-shadow: 0px 0px 0px 6px rgba(255, 255, 255, 0.2);
+}
+.blocklyDropDownButton > img {
+width: 80%;
+height: 80%;
+margin-top: 5%
+}
+.blocklyDropDownPlaceholder {
+display: inline-block;
+float: left;
+padding: 0;
+margin: 4px;
+}
+.blocklyNumPadButton {
+display: inline-block;
+float: left;
+padding: 0;
+width: 48px;
+height: 48px;
+margin: 4px;
+border-radius: 4px;
+background: #547AB2;
+color: #FFFFFF;
+outline: none;
+border: 1px solid #435F91;
+cursor: pointer;
+font-weight: 600;
+font-family: "Helvetica Neue", "Segoe UI", Helvetica, sans-serif;
+font-size: 12pt;
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.blocklyNumPadButton > img {
+margin-top: 10%;
+width: 80%;
+height: 80%;
+}
+.blocklyNumPadButton:active {
+background: #435F91;
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.blocklyArrowTop {
+border-top: 1px solid;
+border-left: 1px solid;
+border-top-left-radius: 4px;
+border-color: inherit;
+}
+.blocklyArrowBottom {
+border-bottom: 1px solid;
+border-right: 1px solid;
+border-bottom-right-radius: 4px;
+border-color: inherit;
+}
+.valueReportBox {
+min-width: 50px;
+max-width: 300px;
+max-height: 200px;
+overflow: auto;
+word-wrap: break-word;
+text-align: center;
+font-family: "Helvetica Neue", "Segoe UI", Helvetica, sans-serif;
+font-size: .8em;
+}
+.blocklyResizeSE {
+cursor: se-resize;
+fill: transparent;
+}
+.blocklyResizeSW {
+cursor: sw-resize;
+fill: transparent;
+}
+.blocklyResizeLine {
+stroke: #515A5A;
+stroke-width: 1;
+}
+.blocklyHighlightedConnectionPath {
+fill: none;
+stroke: #FFF200;
+stroke-width: 4px;
+}
+.blocklyPath {
+stroke-width: 1px;
+transition: stroke .4s;
+}
+.blocklyDraggable:not(.blocklySelected)>.blocklyPath.blocklyReporterHover {
+stroke-width: 2px;
+stroke: white;
+}
+.blocklyBlockBackground.blocklyFieldHover {
+stroke-width: 2px;
+stroke: white;
+}
+.blocklySelected>.blocklyPath {
+}
+.blocklyDraggable {
+cursor: url("https://pxt.azureedge.net/commit/0da1704a1fb49842d847f17d47e1f19b744de89f/blockly/media/handopen.cur"), auto;
+cursor: grab;
+cursor: -webkit-grab;
+touch-action: none;
+}
+.blocklyDragging {
+cursor: url("https://pxt.azureedge.net/commit/0da1704a1fb49842d847f17d47e1f19b744de89f/blockly/media/handclosed.cur"), auto;
+cursor: grabbing;
+cursor: -webkit-grabbing;
+touch-action: none;
+}
+.blocklyDraggable:active {
+cursor: url("https://pxt.azureedge.net/commit/0da1704a1fb49842d847f17d47e1f19b744de89f/blockly/media/handclosed.cur"), auto;
+cursor: grabbing;
+cursor: -webkit-grabbing;
+}
+.blocklyBlockDragSurface .blocklyDraggable {
+cursor: url("https://pxt.azureedge.net/commit/0da1704a1fb49842d847f17d47e1f19b744de89f/blockly/media/handclosed.cur"), auto;
+cursor: grabbing;
+cursor: -webkit-grabbing;
+}
+.blocklyDragging.blocklyDraggingDelete {
+cursor: url("https://pxt.azureedge.net/commit/0da1704a1fb49842d847f17d47e1f19b744de89f/blockly/media/handdelete.cur"), auto;
+}
+.blocklyDragging>.blocklyPath,
+.blocklyDragging>.blocklyPathLight {
+fill-opacity: .8;
+stroke-opacity: .8;
+}
+.blocklyDragging>.blocklyPath {
+}
+.blocklyDisabled>.blocklyPath {
+fill-opacity: .8;
+stroke-opacity: .8;
+}
+.blocklyDisabled .blocklyEditableText .blocklyBlockBackground,
+.blocklyDisabled .blocklyNonEditableText .blocklyBlockBackground,
+.blocklyDisabled g[data-argument-type="dropdown"] .blocklyBlockBackground {
+fill-opacity: 0.1 !important;
+}
+.blocklyInsertionMarker>.blocklyPath {
+stroke: none;
+}
+.blocklyInsertionMarker>.blocklyIconGroup {
+display: none;
+}
+.blocklyInsertionMarker>.blocklyPath,
+.blocklyInsertionMarker>.blocklyPathLight,
+.blocklyInsertionMarker>.blocklyPathDark {
+fill-opacity: .2;
+stroke: none
+}
+.blocklyReplaceable .blocklyPath {
+fill-opacity: 0.5;
+}
+.blocklyReplaceable .blocklyPathLight,
+.blocklyReplaceable .blocklyPathDark {
+display: none;
+}
+.blocklyText {
+cursor: default;
+fill: #fff;
+font-family: "Helvetica Neue", "Segoe UI", Helvetica, sans-serif;
+font-size: 12pt;
+font-weight: bold;
+}
+.blocklyTextTruncated {
+font-size: 11pt;
+}
+.blocklyMultilineText {
+font-family: monospace;
+}
+.blocklyNonEditableText>g>text {
+pointer-events: none;
+}
+.blocklyNonEditableText>text,
+.blocklyEditableText>text,
+.blocklyNonEditableText>g>text,
+.blocklyEditableText>g>text {
+fill: #575E75;
+}
+.blocklyDropdownText {
+fill: #fff !important;
+}
+.blocklyBubbleText {
+fill: #fff;
+}
+.blocklyBubbleCanvas {
+user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-webkit-user-select: none;
+}
+.blocklyFlyout {
+position: absolute;
+z-index: 20;
+}
+.blocklyFlyout {
+position: absolute;
+z-index: 20;
+}
+.blocklySvg text, .blocklyBlockDragSurface text, .blocklyFlyout text, .blocklyToolboxDiv text {
+user-select: none;
+-ms-user-select: none;
+-webkit-user-select: none;
+cursor: inherit;
+}
+.blocklyHidden {
+display: none;
+}
+.blocklyFieldDropdown:not(.blocklyHidden) {
+display: block;
+}
+.blocklyIconGroup,
+.blocklyBreakpointIconGroup {
+cursor: default;
+}
+.blocklyIconGroup:not(:hover),
+.blocklyIconGroupReadonly {
+opacity: .6;
+}
+.blocklyBreakpointIconGroup:hover,
+.blocklyBreakpointIconGroupReadonly {
+fill-opacity: .6;
+}
+.blocklyIconShape {
+fill: #000;
+stroke-width: 1px;
+stroke: #fff;
+cursor: pointer;
+}
+.blocklyIconSymbol {
+fill: #fff;
+}
+.blocklyMinimalBody {
+margin: 0;
+padding: 0;
+background-color: #FAF6BD;
+}
+.blocklyUneditableMinimalBody {
+fill: #FAF6BD;
+}
+.blocklyHtmlInput {
+border: none;
+font-family: "Helvetica Neue", "Segoe UI", Helvetica, sans-serif;
+font-size: 12pt;
+height: 100%;
+margin: 0;
+outline: none;
+box-sizing: border-box;
+width: 100%;
+text-align: center;
+color: #575E75;
+font-weight: bold;
+}
+.blocklyHtmlInput::-ms-clear {
+display: none;
+}
+.blocklyMainBackground {
+stroke-width: 1;
+stroke: #c6c6c6;
+touch-action: none;
+}
+.blocklyMutatorBackground {
+fill: #fff;
+stroke: #ddd;
+stroke-width: 1;
+}
+.blocklyFlyoutBackground {
+fill: #444;
+fill-opacity: .8;
+}
+.blocklyMainWorkspaceScrollbar {
+z-index: 20;
+}
+.blocklyFlyoutScrollbar {
+z-index: 30;
+}
+.blocklyScrollbarHorizontal, .blocklyScrollbarVertical {
+position: absolute;
+outline: none;
+touch-action: none;
+}
+.blocklyScrollbarBackground {
+opacity: 0;
+}
+.blocklyScrollbarHandle {
+fill: #CECDCE;
+}
+.blocklyScrollbarBackground:hover+.blocklyScrollbarHandle,
+.blocklyScrollbarHandle:hover {
+fill: #CECDCEHover;
+}
+.blocklyZoom>image {
+opacity: 1;
+}
+.blocklyFlyout .blocklyScrollbarHandle {
+fill: #bbb;
+}
+.blocklyFlyout .blocklyScrollbarBackground:hover+.blocklyScrollbarHandle,
+.blocklyFlyout .blocklyScrollbarHandle:hover {
+fill: #aaa;
+}
+.blocklyInvalidInput {
+background: #faa;
+}
+.blocklyContextMenu {
+border-radius: 4px;
+max-height: 100%;
+}
+.blocklyDropdownMenu {
+border-radius: 2px;
+padding: 0 !important;
+}
+.blocklyDropDownNumPad {
+background-color: #547AB2;
+}
+.blocklyWidgetDiv .blocklyDropdownMenu .goog-menuitem,
+.blocklyDropDownDiv .blocklyDropdownMenu .goog-menuitem {
+padding-left: 28px;
+}
+.blocklyWidgetDiv .blocklyDropdownMenu .goog-menuitem.goog-menuitem-rtl,
+.blocklyDropDownDiv .blocklyDropdownMenu .goog-menuitem.goog-menuitem-rtl {
+padding-left: 5px;
+padding-right: 28px;
+}
+.blocklyVerticalMarker {
+stroke-width: 3px;
+fill: rgba(255,255,255,.5);
+}
+.blocklyWidgetDiv .goog-option-selected .goog-menuitem-checkbox,
+.blocklyWidgetDiv .goog-option-selected .goog-menuitem-icon,
+.blocklyDropDownDiv .goog-option-selected .goog-menuitem-checkbox,
+.blocklyDropDownDiv .goog-option-selected .goog-menuitem-icon {
+background: url(https://pxt.azureedge.net/commit/0da1704a1fb49842d847f17d47e1f19b744de89f/blockly/media/sprites.png) no-repeat -48px -16px;
+}
+.blocklyWidgetDiv .goog-menu {
+background: #fff;
+border-color: transparent;
+border-style: solid;
+border-width: 1px;
+cursor: default;
+font: normal 13px "Helvetica Neue", Helvetica, sans-serif;
+margin: 0;
+outline: none;
+padding: 4px 0;
+position: absolute;
+overflow-y: auto;
+overflow-x: hidden;
+max-height: 100%;
+z-index: 20000;
+box-shadow: 0px 0px 3px 1px rgba(0,0,0,.3);
+}
+.blocklyDropDownDiv .goog-menu {
+cursor: default;
+font: normal 13px "Helvetica Neue", Helvetica, sans-serif;
+outline: none;
+z-index: 20000;
+box-shadow: 0px 0px 3px 1px rgba(0,0,0,.3);
+}
+.blocklyWidgetDiv .goog-menu.focused {
+box-shadow: 0px 0px 6px 1px rgba(0,0,0,.3);
+}
+.blocklyDropDownDiv .goog-menu {
+cursor: default;
+font: normal 13px "Helvetica Neue", Helvetica, sans-serif;
+outline: none;
+z-index: 20000;
+}
+.blocklyWidgetDiv .goog-menuitem,
+.blocklyDropDownDiv .goog-menuitem {
+color: #000;
+font: normal 13px "Helvetica Neue", Helvetica, sans-serif;
+list-style: none;
+margin: 0;
+min-width: 7em;
+border: none;
+padding: 6px 15px;
+white-space: nowrap;
+cursor: pointer;
+}
+.blocklyWidgetDiv .goog-menu-nocheckbox .goog-menuitem,
+.blocklyWidgetDiv .goog-menu-noicon .goog-menuitem,
+.blocklyDropDownDiv .goog-menu-nocheckbox .goog-menuitem,
+.blocklyDropDownDiv .goog-menu-noicon .goog-menuitem {
+padding-left: 12px;
+}
+.blocklyWidgetDiv .goog-menuitem-content,
+.blocklyDropDownDiv .goog-menuitem-content {
+font-family: Arial, sans-serif;
+font-size: 13px;
+}
+.blocklyWidgetDiv .goog-menuitem-content {
+color: #000;
+}
+.blocklyDropDownDiv .goog-menuitem-content {
+color: #000;
+}
+.blocklyWidgetDiv .goog-menuitem-disabled,
+.blocklyDropDownDiv .goog-menuitem-disabled {
+cursor: inherit;
+}
+.blocklyWidgetDiv .goog-menuitem-disabled .goog-menuitem-content,
+.blocklyDropDownDiv .goog-menuitem-disabled .goog-menuitem-content {
+color: #ccc !important;
+}
+.blocklyWidgetDiv .goog-menuitem-disabled .goog-menuitem-icon,
+.blocklyDropDownDiv .goog-menuitem-disabled .goog-menuitem-icon {
+opacity: .3;
+filter: alpha(opacity=30);
+}
+.blocklyWidgetDiv .goog-menuitem-highlight ,
+.blocklyDropDownDiv .goog-menuitem-highlight {
+background-color: rgba(0,0,0,.1);
+}
+.blocklyWidgetDiv .goog-menuitem-checkbox,
+.blocklyWidgetDiv .goog-menuitem-icon,
+.blocklyDropDownDiv .goog-menuitem-checkbox,
+.blocklyDropDownDiv .goog-menuitem-icon {
+background-repeat: no-repeat;
+height: 16px;
+left: 6px;
+position: absolute;
+right: auto;
+vertical-align: middle;
+width: 16px;
+}
+.blocklyWidgetDiv .goog-menuitem-rtl .goog-menuitem-checkbox,
+.blocklyWidgetDiv .goog-menuitem-rtl .goog-menuitem-icon,
+.blocklyDropDownDiv .goog-menuitem-rtl .goog-menuitem-checkbox,
+.blocklyDropDownDiv .goog-menuitem-rtl .goog-menuitem-icon {
+left: auto;
+right: 6px;
+}
+.blocklyWidgetDiv .goog-option-selected .goog-menuitem-checkbox,
+.blocklyWidgetDiv .goog-option-selected .goog-menuitem-icon,
+.blocklyDropDownDiv .goog-option-selected .goog-menuitem-checkbox,
+.blocklyDropDownDiv .goog-option-selected .goog-menuitem-icon {
+background: url(https://pxt.azureedge.net/commit/0da1704a1fb49842d847f17d47e1f19b744de89f/blockly/media/sprites.png) no-repeat -48px -16px !important;
+position: static;
+float: left;
+margin-left: -24px;
+}
+.blocklyWidgetDiv .goog-menuitem-rtl .goog-menuitem-checkbox,
+.blocklyWidgetDiv .goog-menuitem-rtl .goog-menuitem-icon,
+.blocklyDropDownDiv .goog-menuitem-rtl .goog-menuitem-checkbox,
+.blocklyDropDownDiv .goog-menuitem-rtl .goog-menuitem-icon {
+float: right;
+margin-right: -24px;
+}
+.blocklyWidgetDiv .goog-menuseparator, 
+.blocklyDropDownDiv .goog-menuseparator {
+border-top: 1px solid #ccc;
+margin: 4px 0;
+padding: 0;
+}
+.blocklyComputeCanvas {
+position: absolute;
+width: 0;
+height: 0;
+}
+.blocklyNoPointerEvents {
+pointer-events: none;
+}
+.blocklyDropDownDiv .goog-slider-horizontal {
+margin: 8px;
+height: 22px;
+width: 150px;
+position: relative;
+outline: none;
+border-radius: 11px;
+margin-bottom: 20px;
+background: #547AB2
+}
+.blocklyDropDownDiv .goog-slider-horizontal .goog-slider-thumb {
+width: 26px;
+height: 26px;
+margin-top: -1px;
+position: absolute;
+background-color: white;
+border-radius: 100%;
+-webkit-box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.15);
+-moz-box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.15);
+box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.15);
+cursor: pointer
+}
+.blocklyFieldSliderLabel {
+font-family: "Helvetica Neue", "Segoe UI", Helvetica, sans-serif;
+font-size: 0.65rem;
+color: #575E75;
+margin: 8px;
+}
+.blocklyFieldSliderLabelText {
+font-weight: bold;
+}
+.blocklyFieldSliderReadout {
+margin-left: 10px;
+}
+.blocklyHighlighted>.blocklyPath {
+stroke: #ff8b27;
+stroke-width: 5px;
+}
+.argumentEditorRemoveIcon {
+position: absolute;
+width: 24px;
+height: 24px;
+top: -40px;
+left: 50%;
+margin-left: -12px;
+cursor: pointer;
+}
+.functioneditor i.argumentEditorTypeIcon {
+position: absolute;
+width: 24px;
+height: 24px;
+top: 40px;
+left: 50%;
+margin-left: -12px;
+}
+.blocklyWidgetDiv.fieldTextInput.argumentEditorInput {
+overflow: visible;
+}
+.functionNameText {
+font-weight: bold;
+}
+.field-text-quote {
+fill: #a31515 !important;
+}
+
+.blocklyCommentTextarea {
+background-color: #FAF6BD;
+border: 0;
+outline: 0;
+margin: 0;
+padding: 3px;
+resize: none;
+display: block;
+color: #575E75;
+overflow: hidden;
+font-size: 12pt;
+line-height: 22px;
+}
+.blocklyFlyoutButton {
+fill: #F4F4F4;
+}
+.blocklyFlyoutButtonBackground {
+stroke: #fff;
+}
+.blocklyFlyoutButton .blocklyText {
+fill: #575E75;
+}
+.blocklyFlyoutButtonShadow {
+fill: none;
+}
+.blocklyFlyoutButton:hover {
+fill: #EAEAEA;
+cursor: pointer;
+}
+.blocklyFlyoutLabel {
+cursor: default;
+}
+.blocklyFlyoutLabelBackground {
+opacity: 0;
+}
+.blocklyFlyoutLabelText {
+font-family: "Helvetica Neue", "Segoe UI", Helvetica, sans-serif;
+font-size: 14pt;
+fill: #575E75;
+font-weight: bold;
+}
+.blocklyToolboxDelete {
+cursor: url("https://pxt.azureedge.net/commit/0da1704a1fb49842d847f17d47e1f19b744de89f/blockly/media/handdelete.cur"), auto;
+}
+.blocklyToolboxGrab {
+cursor: url("https://pxt.azureedge.net/commit/0da1704a1fb49842d847f17d47e1f19b744de89f/blockly/media/handclosed.cur"), auto;
+cursor: grabbing;
+cursor: -webkit-grabbing;
+}
+.blocklyToolboxDiv {
+background-color: #FFFFFF;
+color: #575E75;
+overflow-x: visible;
+overflow-y: auto;
+position: absolute;
+font-family: sans-serif;
+user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-webkit-user-select: none;
+z-index: 40;
+-webkit-tap-highlight-color: transparent;
+}
+.blocklyTreeRoot {
+padding: 4px 0;
+}
+.blocklyTreeRoot:focus {
+outline: none;
+}
+.blocklyTreeRow {
+height: 22px;
+line-height: 22px;
+margin-bottom: 3px;
+padding-right: 8px;
+white-space: nowrap;
+}
+.blocklyHorizontalTree {
+float: left;
+margin: 1px 5px 8px 0;
+}
+.blocklyHorizontalTreeRtl {
+float: right;
+margin: 1px 0 8px 5px;
+}
+.blocklyToolboxDiv[dir="RTL"] .blocklyTreeRow {
+margin-left: 8px;
+}
+.blocklyTreeRow:not(.blocklyTreeSelected):hover {
+background-color: #e4e4e4;
+}
+.blocklyTreeSeparator {
+border-bottom: solid #e5e5e5 1px;
+height: 0;
+margin: 5px 0;
+}
+.blocklyTreeSeparatorHorizontal {
+border-right: solid #e5e5e5 1px;
+width: 0;
+padding: 5px 0;
+margin: 0 5px;
+}
+.blocklyTreeIcon {
+background-image: url(https://pxt.azureedge.net/commit/0da1704a1fb49842d847f17d47e1f19b744de89f/blockly/media/sprites.png);
+height: 16px;
+vertical-align: middle;
+width: 16px;
+}
+.blocklyTreeIconClosedLtr {
+background-position: -32px -1px;
+}
+.blocklyTreeIconClosedRtl {
+background-position: 0 -1px;
+}
+.blocklyTreeIconOpen {
+background-position: -16px -1px;
+}
+.blocklyTreeSelected>.blocklyTreeIconClosedLtr {
+background-position: -32px -17px;
+}
+.blocklyTreeSelected>.blocklyTreeIconClosedRtl {
+background-position: 0 -17px;
+}
+.blocklyTreeSelected>.blocklyTreeIconOpen {
+background-position: -16px -17px;
+}
+.blocklyTreeIconNone,
+.blocklyTreeSelected>.blocklyTreeIconNone {
+background-position: -48px -1px;
+}
+.blocklyTreeLabel {
+cursor: default;
+font-family: sans-serif;
+font-size: 16px;
+padding: 0 3px;
+vertical-align: middle;
+}
+.blocklyToolboxDelete .blocklyTreeLabel {
+cursor: url("https://pxt.azureedge.net/commit/0da1704a1fb49842d847f17d47e1f19b744de89f/blockly/media/handdelete.cur"), auto;
+}
+.blocklyTreeSelected .blocklyTreeLabel {
+color: #fff;
+}
+.blocklyCommentForeignObject {
+position: relative;
+z-index: 0;
+}
+.blocklyComment > image {
+cursor: pointer
+}
+.blocklyCommentRect {
+fill: #FAF6BD;
+stroke: #F9F3A1;
+stroke-width: 1px
+}
+.blocklyCommentTarget {
+fill: transparent;
+stroke: #F9F3A1;
+}
+.blocklyCommentTargetFocused {
+fill: none;
+}
+.blocklyCommentText {
+fill: #000;
+pointer-events: none;
+}
+.blocklyCommentHandleTarget {
+fill: none;
+}
+.blocklyCommentHandleTargetFocused {
+fill: transparent;
+}
+.blocklyFocused>.blocklyCommentRect {
+fill: #FFB900;
+stroke: #B9B272;
+}
+.blocklySelected>.blocklyCommentTarget {
+stroke: #FFB900;
+stroke-width: 1px;
+}
+.blocklyCommentForeignObject {
+position: relative;
+z-index: 0;
+}
+.blocklyCommentRect {
+fill: #FAF6BD;
+stroke: #F9F3A1;
+stroke-width: 1px
+}
+.blocklyCommentTarget {
+fill: transparent;
+stroke: #F9F3A1;
+}
+.blocklyCommentTargetFocused {
+fill: none;
+}
+.blocklyCommentHandleTarget {
+fill: none;
+}
+.blocklyCommentHandleTargetFocused {
+fill: transparent;
+}
+.blocklyUneditableComment {
+fill: #575E75;
+}
+.blocklyCommentDeleteIcon {
+cursor: pointer;
+fill: #000;
+display: none
+}
+.blocklyFocused > .blocklyCommentDeleteIcon, .blocklyCommentBubble > .blocklyCommentDeleteIcon {
+display: block
+}
+.blocklyDeleteIconShape.blocklyDeleteIconHighlighted {
+fill: rgba(255, 255, 255, 0.20);
+}
+.blocklyCommentDeleteIcon {
+cursor: pointer;
+fill: #000;
+display: none
+}
+.blocklySelected > .blocklyCommentDeleteIcon {
+display: block
+}
+.blocklyZoom>image, .blocklyZoom>svg>image {
+opacity: .4;
+}
+.blocklyZoom>image:hover, .blocklyZoom>svg>image:hover {
+opacity: .6;
+}
+.blocklyZoom>image:active, .blocklyZoom>svg>image:active {
+opacity: .8;
+}
+.blocklyAngleCenterPoint {
+stroke: #fff;
+stroke-width: 1;
+fill: #fff;
+}
+.blocklyAngleDragHandle {
+stroke: #fff;
+stroke-width: 5;
+stroke-opacity: 0.25;
+fill: #fff;
+cursor: pointer;
+}
+.blocklyAngleMarks {
+stroke: #fff;
+stroke-width: 1;
+stroke-opacity: 0.5;
+}
+.blocklyAngleGauge {
+fill: #fff;
+fill-opacity: 0.20;
+}
+.blocklyAngleLine {
+stroke: #fff;
+stroke-width: 1;
+stroke-linecap: round;
+pointer-events: none;
+}
+.blocklyColourTable {
+outline: none;
+border-radius: 11px;
+border-collapse: separate;
+border-spacing: 4px;
+}
+.blocklyColourTable > tr > td {
+height: 22px;
+width: 22px;
+margin: 0;
+border: 0;
+text-align: center;
+cursor: pointer;
+border-radius: 4px;
+border: 2px solid rgba(0,0,0,.1);
+}
+.blocklyColourTable > tr > td:hover {
+border: 1px solid #FFF;
+box-sizing: border-box;
+}
+.blocklyColourTable > tr > td.blocklyColourSelected {
+border: 1px solid #000;
+box-sizing: border-box;
+color: #fff;
+}
+.blocklyColourTable>tr>td.blocklyColourHighlighted {
+border-color: #eee;
+box-shadow: 2px 2px 7px 2px rgba(0,0,0,.3);
+position: relative;
+}
+.blocklyColourSelected, .blocklyColourSelected:hover {
+border-color: #eee !important;
+outline: 1px solid #333;
+position: relative;
+}
+.blocklyHtmlTextAreaInput {
+font-family: monospace;
+resize: none;
+overflow: hidden;
+height: 100%;
+text-align: left;
+}
+.dark-theme .blocklyTreeRow:not(.blocklyTreeSelected):hover {
+background-color: #2a2d2e;
+}
+.dark-theme.blocklyWidgetDiv .goog-menu, 
+.dark-theme.blocklyDropDownDiv {
+background-color: #3c3c3c;
+}
+.dark-theme.blocklyDropDownDiv {
+border-color: #565656;
+}
+.dark-theme.blocklyWidgetDiv .goog-menuitem-content, 
+.dark-theme.blocklyDropDownDiv .goog-menuitem-content {
+color: #f0f0f0;
+}
+.dark-theme.blocklyWidgetDiv .goog-menuitem-disabled
+ .goog-menuitem-content,
+.dark-theme.blocklyDropDownDiv .goog-menuitem-disabled
+ .goog-menuitem-content {
+color: #8a8a8a !important;
+}</style>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <script type="text/javascript">
+    if(/[&?]translate=1/.test(window.location.href)) {
+		var _jipt = [];
+        _jipt.push(['project', 'kindscript']);
+        _jipt.push(['escape', function() {
+            window.location.href = window.location.href.replace(/[$\?]translate=1/, '');
+        }]);
+        _jipt.push(['before_dom_insert', function(text, node, attribute) {
+            if (text)
+                text = text.replace(/^\{(id|loc):[^\}]+\}/g, '');
+            return text;
+        }]);
+        // inject crowdin
+        (function _() {
+            var s = document.createElement("script");
+            s.setAttribute("type", "text/javascript");
+            s.setAttribute("src", "//cdn.crowdin.com/jipt/jipt.js");
+            document.head.insertBefore(s, document.head.firstElementChild);
+        })();
+    }
+	</script>
+
+    
+<!-- include appmeta.html -->
+
+<!-- include robotsmeta.html -->
+
+<!-- end include robotsmeta.html -->
+
+<title>Microsoft MakeCode for micro:bit</title>
+<meta name="description" content="A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode.">
+<link rel="manifest" href="https://pxt.azureedge.net/blob/969c276bff779fefe6c6c10144fae5745975693e/sim.webmanifest">
+
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Microsoft MakeCode for micro:bit">
+<meta name="apple-mobile-web-app-status-bar-style" content="translucent-black">
+<meta name="format-detection" content="telephone=no">
+<meta name="application-name" content="Microsoft MakeCode for micro:bit">
+<meta name="apple-itunes-app" content="app-id=1092687276">
+<meta name="msapplication-TileColor" content="#5C005C">
+<meta name="msapplication-TileImage" content="./static/icons/apple-touch-icon.png">
+<meta name="msapplication-config" content="none">
+<meta name="theme-color" content="#5C005C">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="">
+<meta name="twitter:title" content="Microsoft MakeCode for micro:bit">
+<meta name="twitter:description" content="A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode.">
+<meta name="twitter:image" content="./static/icons/apple-touch-icon.png">
+
+<meta property="og:title" content="Microsoft MakeCode for micro:bit">
+<meta property="og:site_name" content="Microsoft MakeCode for micro:bit">
+<meta property="og:description" content="A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode.">
+<meta property="og:image" content="./static/icons/apple-touch-icon.png">
+
+<link rel="apple-touch-icon" href="https://makecode.microbit.org/static/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="https://makecode.microbit.org/static/icons/apple-touch-icon.png">
+<link rel="shortcut icon" href="https://makecode.microbit.org/static/icons/apple-touch-icon.png">
+
+<!-- end include appmeta.html -->
+
+
+    <link rel="stylesheet" data-rtl="https://pxt.azureedge.net/blob/89f7e33c5e1a2ce23caf106336f352b647f07985/rtlsemantic.css" href="./MicroCode_files/semantic.css" type="text/css">
+<script src="./MicroCode_files/ai.0.js.download"></script><style type="text/css">.ui.accent { color: #5C005C; }
+                .ui.inverted.menu .accent.active.item, .ui.inverted.accent.menu  { background-color: #5C005C; }</style><link href="./MicroCode_files/blockly.css" rel="stylesheet" type="text/css" id="style-blockly.css"></head>
+
+<body class="main">
+    
+
+    <div id="custom-content">
+    </div>
+    <div id="blocks-editor-field-div">
+    </div>
+
+    <div id="allcontent">
+        <div id="editorcontent">
+            <div id="content" class="ui dimmable full-abs"><div id="root" class="ui dimmable ide inHome has-touch hideEditorToolbar editorlang-text full-abs"><div id="simulator" class="simulator"><div id="filelist" class="ui items"><div id="boardview" class="ui vertical editorFloat" role="region" aria-label="Simulator" tabindex="-1"><div id="simulators" class="simulator"></div><div id="debugger" class="ui item landscape only"></div></div><div></div><div class="ui item portrait hide hidefullscreen"></div><div id="serialPreview" class="ui editorFloat portrait hide hidefullscreen"><div></div><div></div></div><div id="filelistOverlay" role="button" title="Open in fullscreen"></div></div></div><div id="maineditor" class="" role="main" aria-hidden="true"><div class="full-abs" id="pxtJsonEditor" style="display: none;"></div><div class="full-abs" id="githubEditor" style="display: none;"></div><div class="full-abs" id="blocksArea" style="display: none;"><div><div id="blocksEditor"><div class="injectionDiv pxt-renderer classic-theme" tabindex="0" aria-label="Blockly Workspace" dir="LTR"><div class="blocklyToolboxDiv blocklyNonSelectable" dir="LTR" style="left: 0px; height: 100%;"><div class="blocklyToolbox"><div style=""><div class="blocklyTreeRoot"><div class="blocklyTreeRow" style="opacity: 0;"></div></div><div class="ui active dimmer"><div class="ui loader indeterminate"></div></div></div><div id="debuggerToolbox"></div></div></div><svg xmlns="http://www.w3.org/2000/svg" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="blocklySvg" tabindex="0" width="0px" height="0px"><defs><pattern id="blocklyGridPattern847476628179247" patternUnits="userSpaceOnUse" width="40.5" height="40.5" x="0" y="0"><line stroke="rgba(189, 195, 199, 0.30)" stroke-width="0.9" x1="17.1" y1="20.25" x2="23.400000000000002" y2="20.25"></line><line stroke="rgba(189, 195, 199, 0.30)" stroke-width="0.9" x1="20.25" y1="17.1" x2="20.25" y2="23.400000000000002"></line></pattern></defs><g class="blocklyWorkspace"><rect height="100%" width="100%" class="blocklyMainBackground" style="fill: url(&quot;#blocklyGridPattern847476628179247&quot;);"></rect><g class="blocklyBlockCanvas" transform="translate(0,0) scale(0.9)"><g class="blocklyMarker"><g width="80" height="5"><rect fill="#4286f4" width="80" height="5" style="display: none"></rect><rect class="blocklyVerticalMarker" rx="10" ry="10" style="display: none" stroke="#4286f4"></rect><path transform="" style="display: none" fill="#4286f4"></path><path transform="" style="display: none" fill="none" stroke="#4286f4" stroke-width="4"></path><circle r="5" style="display: none" fill="#4286f4" stroke="#4286f4" stroke-width="4"></circle></g></g><g class="blocklyCursor"><g width="80" height="5"><rect fill="#ffa200" width="80" height="5" style="display: none"><animate attributeType="XML" attributeName="fill" dur="1s" values="#ffa200;transparent;transparent;" repeatCount="indefinite"></animate></rect><rect class="blocklyVerticalMarker" rx="10" ry="10" style="display: none" stroke="#ffa200"></rect><path transform="" style="display: none" fill="#ffa200"><animate attributeType="XML" attributeName="fill" dur="1s" values="#ffa200;transparent;transparent;" repeatCount="indefinite"></animate></path><path transform="" style="display: none" fill="none" stroke="#ffa200" stroke-width="4"><animate attributeType="XML" attributeName="stroke" dur="1s" values="#ffa200;transparent;transparent;" repeatCount="indefinite"></animate></path><circle r="5" style="display: none" fill="#ffa200" stroke="#ffa200" stroke-width="4"><animate attributeType="XML" attributeName="fill" dur="1s" values="#ffa200;transparent;transparent;" repeatCount="indefinite"></animate></circle></g></g></g><g class="blocklyBubbleCanvas" transform="translate(0,0) scale(0.9)"></g><rect height="25" width="25" class="blocklyScrollbarBackground" x="-25.5" y="-25.5"></rect><defs><filter id="blocklyEmbossFilter7648434397332475"><fegaussianblur in="SourceAlpha" stdDeviation="1" result="blur"></fegaussianblur><fespecularlighting in="blur" surfaceScale="1" specularConstant="0.5" specularExponent="10" lighting-color="white" result="specOut"><fepointlight x="-5000" y="-10000" z="20000"></fepointlight></fespecularlighting><fecomposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"></fecomposite><fecomposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"></fecomposite></filter><pattern id="blocklyDisabledPattern7648434397332475" patternUnits="userSpaceOnUse" width="10" height="10"><rect width="10" height="10" fill="#aaa"></rect><path d="M 0 0 L 10 10 M 10 0 L 0 10" stroke="#cc0"></path></pattern></defs><defs><filter id="blocklySelectedGlowFilter7648434397332475" height="160%" width="180%" y="-30%" x="-40%"><fegaussianblur in="SourceGraphic" stdDeviation="0.4"></fegaussianblur><fecomponenttransfer result="outBlur"><fefunca type="table" tableValues="0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"></fefunca></fecomponenttransfer><feflood flood-color="#FFF200" flood-opacity="1" result="outColor"></feflood><fecomposite in="outColor" in2="outBlur" operator="in" result="outGlow"></fecomposite></filter><filter id="blocklyReplacementGlowFilter7648434397332475" height="160%" width="180%" y="-30%" x="-40%"><fegaussianblur in="SourceGraphic" stdDeviation="2"></fegaussianblur><fecomponenttransfer result="outBlur"><fefunca type="table" tableValues="0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"></fefunca></fecomponenttransfer><feflood flood-color="#fff200" flood-opacity="1" result="outColor"></feflood><fecomposite in="outColor" in2="outBlur" operator="in" result="outGlow"></fecomposite><fecomposite in="SourceGraphic" in2="outGlow" operator="over"></fecomposite></filter></defs><defs><filter id="blocklyHighlightGlowFilter7648434397332475" height="160%" width="180%" y="-30%" x="-40%"><fegaussianblur in="SourceGraphic" stdDeviation="1.1"></fegaussianblur><fecomponenttransfer result="outBlur"><fefunca type="table" tableValues="0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"></fefunca></fecomponenttransfer><feflood flood-color="#FFF200" flood-opacity="1" result="outColor"></feflood><fecomposite in="outColor" in2="outBlur" operator="in" result="outGlow"></fecomposite></filter><filter id="blocklyHighlightWarningFilter7648434397332475" height="160%" width="180%" y="-30%" x="-40%"><fegaussianblur in="SourceGraphic" stdDeviation="1.1"></fegaussianblur><fecomponenttransfer result="outBlur"><fefunca type="table" tableValues="0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"></fefunca></fecomponenttransfer><feflood flood-color="#E53D00" flood-opacity="1" result="outColor"></feflood><fecomposite in="outColor" in2="outBlur" operator="in" result="outGlow"></fecomposite></filter><image id="blocklyDropdownArrowSvg" height="12px" width="12px" xlink:href="data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMi43MSIgaGVpZ2h0PSI4Ljc5IiB2aWV3Qm94PSIwIDAgMTIuNzEgOC43OSI+PHRpdGxlPmRyb3Bkb3duLWFycm93PC90aXRsZT48ZyBvcGFjaXR5PSIwLjEiPjxwYXRoIGQ9Ik0xMi43MSwyLjQ0QTIuNDEsMi40MSwwLDAsMSwxMiw0LjE2TDguMDgsOC4wOGEyLjQ1LDIuNDUsMCwwLDEtMy40NSwwTDAuNzIsNC4xNkEyLjQyLDIuNDIsMCwwLDEsMCwyLjQ0LDIuNDgsMi40OCwwLDAsMSwuNzEuNzFDMSwwLjQ3LDEuNDMsMCw2LjM2LDBTMTEuNzUsMC40NiwxMiwuNzFBMi40NCwyLjQ0LDAsMCwxLDEyLjcxLDIuNDRaIiBmaWxsPSIjMjMxZjIwIi8+PC9nPjxwYXRoIGQ9Ik02LjM2LDcuNzlhMS40MywxLjQzLDAsMCwxLTEtLjQyTDEuNDIsMy40NWExLjQ0LDEuNDQsMCwwLDEsMC0yYzAuNTYtLjU2LDkuMzEtMC41Niw5Ljg3LDBhMS40NCwxLjQ0LDAsMCwxLDAsMkw3LjM3LDcuMzdBMS40MywxLjQzLDAsMCwxLDYuMzYsNy43OVoiIGZpbGw9IiNmZmYiLz48L3N2Zz4="></image></defs></g></svg><svg class="blocklyScrollbarVertical blocklyMainWorkspaceScrollbar" width="25" height="0" style="transform: translate(-25.5px, 0.5px);"><g><rect class="blocklyScrollbarBackground" width="25" height="0"></rect><rect class="blocklyScrollbarHandle" rx="10" ry="10" width="20" x="2.5" height="0" y="0"></rect></g></svg><svg class="blocklyScrollbarHorizontal blocklyMainWorkspaceScrollbar" height="25" width="0" style="transform: translate(0.5px, -25.5px);"><g><rect class="blocklyScrollbarBackground" height="25" width="0"></rect><rect class="blocklyScrollbarHandle" rx="10" ry="10" height="20" y="2.5" width="0" x="0"></rect></g></svg><svg class="blocklyFlyout" style="display: none"><path class="blocklyFlyoutBackground"></path><g class="blocklyWorkspace"><g class="blocklyBlockCanvas"><g class="blocklyMarker"><g width="80" height="5"><rect fill="#4286f4" width="80" height="5" style="display: none"></rect><rect class="blocklyVerticalMarker" rx="10" ry="10" style="display: none" stroke="#4286f4"></rect><path transform="" style="display: none" fill="#4286f4"></path><path transform="" style="display: none" fill="none" stroke="#4286f4" stroke-width="4"></path><circle r="5" style="display: none" fill="#4286f4" stroke="#4286f4" stroke-width="4"></circle></g></g><g class="blocklyCursor"><g width="80" height="5"><rect fill="#ffa200" width="80" height="5" style="display: none"><animate attributeType="XML" attributeName="fill" dur="1s" values="#ffa200;transparent;transparent;" repeatCount="indefinite"></animate></rect><rect class="blocklyVerticalMarker" rx="10" ry="10" style="display: none" stroke="#ffa200"></rect><path transform="" style="display: none" fill="#ffa200"><animate attributeType="XML" attributeName="fill" dur="1s" values="#ffa200;transparent;transparent;" repeatCount="indefinite"></animate></path><path transform="" style="display: none" fill="none" stroke="#ffa200" stroke-width="4"><animate attributeType="XML" attributeName="stroke" dur="1s" values="#ffa200;transparent;transparent;" repeatCount="indefinite"></animate></path><circle r="5" style="display: none" fill="#ffa200" stroke="#ffa200" stroke-width="4"><animate attributeType="XML" attributeName="fill" dur="1s" values="#ffa200;transparent;transparent;" repeatCount="indefinite"></animate></circle></g></g></g><g class="blocklyBubbleCanvas"></g><defs><filter id="blocklyEmbossFilter7084812722211178"><fegaussianblur in="SourceAlpha" stdDeviation="1" result="blur"></fegaussianblur><fespecularlighting in="blur" surfaceScale="1" specularConstant="0.5" specularExponent="10" lighting-color="white" result="specOut"><fepointlight x="-5000" y="-10000" z="20000"></fepointlight></fespecularlighting><fecomposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"></fecomposite><fecomposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"></fecomposite></filter><pattern id="blocklyDisabledPattern7084812722211178" patternUnits="userSpaceOnUse" width="10" height="10"><rect width="10" height="10" fill="#aaa"></rect><path d="M 0 0 L 10 10 M 10 0 L 0 10" stroke="#cc0"></path></pattern></defs><defs><filter id="blocklySelectedGlowFilter7084812722211178" height="160%" width="180%" y="-30%" x="-40%"><fegaussianblur in="SourceGraphic" stdDeviation="0.4"></fegaussianblur><fecomponenttransfer result="outBlur"><fefunca type="table" tableValues="0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"></fefunca></fecomponenttransfer><feflood flood-color="#FFF200" flood-opacity="1" result="outColor"></feflood><fecomposite in="outColor" in2="outBlur" operator="in" result="outGlow"></fecomposite></filter><filter id="blocklyReplacementGlowFilter7084812722211178" height="160%" width="180%" y="-30%" x="-40%"><fegaussianblur in="SourceGraphic" stdDeviation="2"></fegaussianblur><fecomponenttransfer result="outBlur"><fefunca type="table" tableValues="0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"></fefunca></fecomponenttransfer><feflood flood-color="#fff200" flood-opacity="1" result="outColor"></feflood><fecomposite in="outColor" in2="outBlur" operator="in" result="outGlow"></fecomposite><fecomposite in="SourceGraphic" in2="outGlow" operator="over"></fecomposite></filter></defs><defs><filter id="blocklyHighlightGlowFilter7084812722211178" height="160%" width="180%" y="-30%" x="-40%"><fegaussianblur in="SourceGraphic" stdDeviation="1.1"></fegaussianblur><fecomponenttransfer result="outBlur"><fefunca type="table" tableValues="0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"></fefunca></fecomponenttransfer><feflood flood-color="#FFF200" flood-opacity="1" result="outColor"></feflood><fecomposite in="outColor" in2="outBlur" operator="in" result="outGlow"></fecomposite></filter><filter id="blocklyHighlightWarningFilter7084812722211178" height="160%" width="180%" y="-30%" x="-40%"><fegaussianblur in="SourceGraphic" stdDeviation="1.1"></fegaussianblur><fecomponenttransfer result="outBlur"><fefunca type="table" tableValues="0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"></fefunca></fecomponenttransfer><feflood flood-color="#E53D00" flood-opacity="1" result="outColor"></feflood><fecomposite in="outColor" in2="outBlur" operator="in" result="outGlow"></fecomposite></filter><image id="blocklyDropdownArrowSvg" height="12px" width="12px" xlink:href="data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMi43MSIgaGVpZ2h0PSI4Ljc5IiB2aWV3Qm94PSIwIDAgMTIuNzEgOC43OSI+PHRpdGxlPmRyb3Bkb3duLWFycm93PC90aXRsZT48ZyBvcGFjaXR5PSIwLjEiPjxwYXRoIGQ9Ik0xMi43MSwyLjQ0QTIuNDEsMi40MSwwLDAsMSwxMiw0LjE2TDguMDgsOC4wOGEyLjQ1LDIuNDUsMCwwLDEtMy40NSwwTDAuNzIsNC4xNkEyLjQyLDIuNDIsMCwwLDEsMCwyLjQ0LDIuNDgsMi40OCwwLDAsMSwuNzEuNzFDMSwwLjQ3LDEuNDMsMCw2LjM2LDBTMTEuNzUsMC40NiwxMiwuNzFBMi40NCwyLjQ0LDAsMCwxLDEyLjcxLDIuNDRaIiBmaWxsPSIjMjMxZjIwIi8+PC9nPjxwYXRoIGQ9Ik02LjM2LDcuNzlhMS40MywxLjQzLDAsMCwxLTEtLjQyTDEuNDIsMy40NWExLjQ0LDEuNDQsMCwwLDEsMC0yYzAuNTYtLjU2LDkuMzEtMC41Niw5Ljg3LDBhMS40NCwxLjQ0LDAsMCwxLDAsMkw3LjM3LDcuMzdBMS40MywxLjQzLDAsMCwxLDYuMzYsNy43OVoiIGZpbGw9IiNmZmYiLz48L3N2Zz4="></image></defs></g></svg><svg class="blocklyScrollbarVertical blocklyFlyoutScrollbar" width="25"><g><rect class="blocklyScrollbarBackground" width="25"></rect><rect class="blocklyScrollbarHandle" rx="10" ry="10" width="20" x="2.5"></rect></g></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="blocklyBlockDragSurface"><defs><filter id="blocklyDragShadowFilter19750207575689527" height="140%" width="140%" y="-20%" x="-20%"><fegaussianblur in="SourceAlpha" stdDeviation="6"></fegaussianblur><fecomponenttransfer result="offsetBlur"><fefunca type="linear" slope="0.4"></fefunca></fecomponenttransfer><fecomposite in="SourceGraphic" in2="offsetBlur" operator="over"></fecomposite></filter></defs><g filter="url(#blocklyDragShadowFilter19750207575689527)" transform="translate(0,0) scale(0.9)"></g></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="blocklyWsDragSurface blocklyOverflowVisible"></svg></div></div><div id="blocklyTrashIcon" style="opacity: 0; display: none;"><i class="trash icon" aria-hidden="true"></i></div></div></div><div class="full-abs" id="serialEditor" style="display: none;"><div id="serialArea"><div id="serialHeader" class="ui serialHeader"><div class="leftHeaderWrapper"><div class="leftHeader"><button class="ui button   " title="Go back" tabindex="0"><i class="icon arrow left " aria-hidden="true" role="presentation"></i><span class="ui text landscape only">Go back</span></button></div></div><div class="rightHeader"><button class="ui button   ui icon button editorExport" title="Copy text" tabindex="0" aria-label="Copy text"><i class="icon copy " aria-hidden="true" role="presentation"></i></button><button class="ui button   ui icon blue button editorExport" title="Export data" tabindex="0" aria-label="Export data"><i class="icon download " aria-hidden="true" role="presentation"></i></button><button class="ui button   ui left floated icon button green toggleRecord" title="Pause recording" tabindex="0"><i class="icon pause icon " aria-hidden="true" role="presentation"></i></button><span class="ui small header">Simulator</span></div></div><div id="serialCharts"></div><div id="serialConsole"></div></div></div><div class="full-abs" id="monacoEditor" style="display: none;"><div id="monacoEditorArea" class="monacoEditorArea " style="direction: ltr;"><div id="monacoEditorRightArea" class="monacoEditorRightArea"><div id="monacoEditorInner"><div id="monacoFlyoutWidget" class="monacoFlyout" style="display: none;"><div id="monacoFlyoutWrapper" role="list"><div class="monacoFlyoutLabel monacoFlyoutHeading"><span class="monacoFlyoutHeadingIcon blocklyTreeIcon blocklyTreeIconDefault" role="presentation" style="color: rgb(109, 91, 165);"></span><div class="monacoFlyoutLabelText">undefined</div></div></div></div></div><div class="errorList errorListSummary" hidden=""><div class="errorListHeader" role="button" aria-label="Expand error list" tabindex="0"><h4>Problems</h4><div class="ui red circular label countBubble">0</div><div class="toggleButton"><i class="icon chevron up " aria-hidden="true" role="presentation"></i></div></div></div></div></div></div></div><div id="homescreen" class="full-abs"><div class="ui home projectsdialog"><header class="menubar" role="banner"><div class="ui accessibleMenu borderless fixed menu" role="menubar"><div class="ui item link   inverted menu " role="menuitem" aria-label="New Project" title="New Project" tabindex="0"><i class="icon add circle icon-and-text  " aria-hidden="true" role="presentation"></i><span class="ui text">New Project</span></div><div class="ui item link   inverted menu " role="menuitem" aria-label="Import Project" title="Import Project" tabindex="0"><i class="icon upload icon-and-text  " aria-hidden="true" role="presentation"></i><span class="ui text">Import Project</span></div><div class="ui item link   inverted menu " role="menuitem" aria-label="Select Language" title="Select Language" tabindex="0"><i class="icon xicon globe icon-and-text  " aria-hidden="true" role="presentation"></i><span class="ui text">Select Language</span></div><div class="ui item link   inverted menu " role="menuitem" aria-label="High Contrast On" title="High Contrast On" tabindex="0"><span class="ui text">High Contrast On</span></div></div><div id="homemenu" class="ui borderless fixed inverted menu" role="menubar"><div class="left menu"><a href="https://microbit.org/" aria-label="micro:bit Logo" role="menuitem" target="blank" rel="noopener" class="ui item logo brand"><img class="ui  logo  portrait hide" src="./MicroCode_files/logo.portrait.white.svg" alt="micro:bit Logo"><img class="ui mini image portrait only" src="./MicroCode_files/logo.square.white.svg" alt="micro:bit Logo"></a></div><div class="ui item home mobile hide"><i class="icon icon home large " aria-hidden="true" role="presentation"></i> <span>Home</span></div><div class="right menu"><div role="menuitem" title="More..." aria-haspopup="false" class="ui dropdown icon item icon more-dropdown-menuitem" tabindex="0"><i class="icon setting large " aria-hidden="true" role="presentation"></i><div role="menu" aria-label="Dropdown menu More..." aria-hidden="false" class="menu"><div class="ui item link    " role="menuitem" aria-label="Language" title="Language" tabindex="0"><i class="icon xicon globe icon-and-text  " aria-hidden="true" role="presentation"></i><span class="ui text">Language</span></div><div class="ui item link    " role="menuitem" aria-label="High Contrast On" title="High Contrast On" tabindex="0"><span class="ui text">High Contrast On</span></div><div class="ui divider"></div><div class="ui item" title="Sign out reeceypie from GitHub" role="menuitem"><div class="avatar" role="presentation"><img class="ui circular image" src="./MicroCode_files/66112471" alt="User picture"></div>Sign out</div><div class="ui divider"></div><div class="ui item link    " role="menuitem" aria-label="Report Abuse..." title="Report Abuse..." tabindex="0"><i class="icon warning circle icon-and-text  " aria-hidden="true" role="presentation"></i><span class="ui text">Report Abuse...</span></div><div class="ui item link    " role="menuitem" aria-label="Reset" title="Reset" tabindex="0"><i class="icon sign out icon-and-text  " aria-hidden="true" role="presentation"></i><span class="ui text">Reset</span></div><div class="ui item link    " role="menuitem" aria-label="About..." title="About..." tabindex="0"><span class="ui text">About...</span></div></div></div><a href="https://makecode.com/" target="blank" rel="noopener" class="ui item logo organization"><img class="ui logo  portrait hide" src="./MicroCode_files/Microsoft-logo_rgb_c-white.png" alt="Microsoft MakeCode Logo"><img class="ui mini image portrait only" src="./MicroCode_files/Microsoft-logo_rgb_c-gray-square.png" alt="Microsoft MakeCode Logo"></a></div></div></header><div class="ui segment bottom attached tab active tabsegment" role="main"><div class="ui segment getting-started-segment" style="background-image: url(&quot;https://pxt.azureedge.net/blob/eff23d2922b288041bf1a92de95043541480c27d/static/hero.png&quot;);"></div><div class="ui segment gallerysegment mystuff-segment" role="region" aria-label="My Projects"><div class="ui heading"><div class="column" style="z-index: 1;"><h2 role="button" class="ui header myproject-header">My Projects<span class="view-all-button" tabindex="0" title="View all projects">View All</span></h2></div><div class="column right aligned" style="z-index: 1;"><button class="ui button icon icon-and-text  import-dialog-btn" title="Import a project" tabindex="0"><i class="icon upload icon-and-text  " aria-hidden="true" role="presentation"></i><span class="ui text landscape only">Import</span></button></div></div><div class="content"><div class="ui carouselouter"><div class="carouselcontainer"><div class="carouselbody" style="width: 1035px; margin-left: 0px;"><div class="carouselitem "><div role="button" class="ui card link buttoncard newprojectcard" title="Creates a new empty project" tabindex="0"><div class="content"><i class="icon huge add circle " aria-hidden="true" role="presentation"></i><span class="header">New Project</span></div></div></div><div class="carouselitem "><div class="ui card  link file github " aria-label="smiley-buttons" tabindex="0"><div class="ui image"><div class="ui fileimage"></div></div><div class="content"><div class="header">smiley-buttons</div></div><div class="meta"><span class="date">2 days ago</span></div></div></div></div></div></div></div></div><div class="ui segment gallerysegment" role="region" aria-label="Tutorials"><h2 class="ui header heading">Tutorials </h2><div class="content"><div><div class="ui carouselouter"><div class="carouselcontainer"><div class="carouselbody" style="width: 1770px; margin-left: 0px;"><div class="carouselitem "><div class="ui card  link example" aria-label="Flashing Heart" tabindex="0"><div class="ui image"><label class="ui purple ribbon large label" aria-label="Flashing Heart label">New? Start Here!</label><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/bd3236c80ed86cbf0b99ff39f26469683c512ebc/static/mb/projects/a1-display.png" style="background-image: url(&quot;https://pxt.azureedge.net/blob/bd3236c80ed86cbf0b99ff39f26469683c512ebc/static/mb/projects/a1-display.png&quot;);"></div></div></div><div class="content"><div class="header">Flashing Heart</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Name Tag" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/e03f64a983c3650f5487009bd9952b1248954e45/static/mb/projects/name-tag.png" style="background-image: url(&quot;https://pxt.azureedge.net/blob/e03f64a983c3650f5487009bd9952b1248954e45/static/mb/projects/name-tag.png&quot;);"></div></div></div><div class="content"><div class="header">Name Tag</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Smiley Buttons" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/668a5a469bae3627ba78dab1f69b1a7e87972f28/static/mb/projects/a2-buttons.png" style="background-image: url(&quot;https://pxt.azureedge.net/blob/668a5a469bae3627ba78dab1f69b1a7e87972f28/static/mb/projects/a2-buttons.png&quot;);"></div></div></div><div class="content"><div class="header">Smiley Buttons</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Dice" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/cb81642a25f424bc62d30f74f6072e07b6db85d9/static/mb/projects/dice.png" style="background-image: url(&quot;https://pxt.azureedge.net/blob/cb81642a25f424bc62d30f74f6072e07b6db85d9/static/mb/projects/dice.png&quot;);"></div></div></div><div class="content"><div class="header">Dice</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Love Meter" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/5e81154127a6378383b7cab124bbb41ea9409a63/static/mb/projects/a3-pins.png" style="background-image: url(&quot;https://pxt.azureedge.net/blob/5e81154127a6378383b7cab124bbb41ea9409a63/static/mb/projects/a3-pins.png&quot;);"></div></div></div><div class="content"><div class="header">Love Meter</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Micro Chat" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/d8cf0f404e04aa67a9f8ed773b2386aa202776de/static/mb/projects/a9-radio.png" style="background-image: url(&quot;https://pxt.azureedge.net/blob/d8cf0f404e04aa67a9f8ed773b2386aa202776de/static/mb/projects/a9-radio.png&quot;);"></div></div></div><div class="content"><div class="header">Micro Chat</div></div></div></div></div></div><span role="button" class="carouselarrow right aligned" tabindex="0" aria-label="See more"><i class="icon circle angle right " aria-hidden="true" role="presentation"></i></span></div></div></div></div><div class="ui segment gallerysegment" role="region" aria-label="Live Coding"><h2 class="ui header heading">Live Coding </h2><div class="content"><div><div class="ui carouselouter"><div class="carouselcontainer"><div class="carouselbody" style="width: 8385px; margin-left: 0px;"><div class="carouselitem "><div class="ui card  link example" aria-label="Guitar" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/74f8316dd3fe088bde8ef472f77b4d3224a26f1a/static/live-coding/dcSIy1dD5Rg.jpg"></div></div></div><div class="content"><div class="header">Guitar</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Name Tag" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/8b657f2c280cc4486b2845c6307d38f89b2b7fb2/static/live-coding/xpRI5jjQ31E.jpg"></div></div></div><div class="content"><div class="header">Name Tag</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Radio Firefly" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/ba860019ace04b94fd29e15182ffe5753a97834b/static/live-coding/_t14jxCuMJg.jpg"></div></div></div><div class="content"><div class="header">Radio Firefly</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Combination Lock" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/ba772ca62cf9f53653b234f6b66efbdc20603d14/static/live-coding/DRd0jjiSXGM.jpg"></div></div></div><div class="content"><div class="header">Combination Lock</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Hand Washing Timer" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/6d2b6168373c6f59abeb7f3a9de9df66c71259b3/static/live-coding/yFviqqPlWyQ.jpg"></div></div></div><div class="content"><div class="header">Hand Washing Timer</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Coin Toss" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/5041d9d78e4c98ab287c5812101bd97ddf1dfd5b/static/live-coding/678ATmGGlvk.jpg"></div></div></div><div class="content"><div class="header">Coin Toss</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Tug of LED" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/d239ab4298522a565847d516661eb255ab3f5e07/static/live-coding/oZrvVB4cGWU.jpg"></div></div></div><div class="content"><div class="header">Tug of LED</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Smiley Buttons" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/f309fe622d8fd9dd4c65ec6d992a87d7d6ead7a1/static/live-coding/BgDxz3M7JIM.jpg"></div></div></div><div class="content"><div class="header">Smiley Buttons</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Micro Chat" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/109972f4677274fa76c7886a4a25b5671784d7ee/static/live-coding/5XqsGROG2fI.jpg"></div></div></div><div class="content"><div class="header">Micro Chat</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Hot Potato" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/03b9e39cb2699a7ef467adcb175eed81cec60810/static/live-coding/xLEy1B_gWKY.jpg"></div></div></div><div class="content"><div class="header">Hot Potato</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Love Meter" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/0d9b2e15fd3655af9c77a1af6a5bc6800b47f4f5/static/live-coding/1IYsy0_9n8g.jpg"></div></div></div><div class="content"><div class="header">Love Meter</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Programmable LEDs" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/1c1aeb61e50092ef939c860a9adea03c38784e7f/static/live-coding/bV8Co98AYkA.jpg"></div></div></div><div class="content"><div class="header">Programmable LEDs</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Dice" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/beae1d6b7780db58ac5fdfab9e823b3338b1cbbe/static/live-coding/OmrmjtOm_sQ.jpg"></div></div></div><div class="content"><div class="header">Dice</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Stopwatch progress" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/310cfa6ce9c48165b1abc8b7494e3d959ee792e5/static/live-coding/2aAcBP2xcaI.jpg"></div></div></div><div class="content"><div class="header">Stopwatch progress</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Temperature" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/dec63bb3a29287013bef5402e4073fa2d15d55d6/static/live-coding/uv4NtRzMwaA.jpg"></div></div></div><div class="content"><div class="header">Temperature</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Hot Or Cold" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/c7ebb14b33986398dd335bdb92c525d315a80afe/static/live-coding/uUeY3dHiXkE.jpg"></div></div></div><div class="content"><div class="header">Hot Or Cold</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Heads Guess!" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/658d58d908eeb20532e2eca00a189a99fd504ef1/static/live-coding/WgMj1AT2G38.jpg"></div></div></div><div class="content"><div class="header">Heads Guess!</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Red Light Green Light" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/728aa297d1d62c3f460064f93bce654f4eb2f506/static/live-coding/Cm22diu8CFA.jpg"></div></div></div><div class="content"><div class="header">Red Light Green Light</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Level" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/43d31537c56a76d46c0a6cfa6443ce8d21ae58a4/static/live-coding/MLb9qTV5-5w.jpg"></div></div></div><div class="content"><div class="header">Level</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Binary Stopwatch" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/c313a6d71ff78fb273ee9330474d55ddd3b23ccf/static/live-coding/Jm3yxMA1mDo.jpg"></div></div></div><div class="content"><div class="header">Binary Stopwatch</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Rock Paper Scissors" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/83817e1326b9ae8290ffaf41d4e7fde5465bfb5c/static/live-coding/94lLBB3b1kU.jpg"></div></div></div><div class="content"><div class="header">Rock Paper Scissors</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Reaction Time Game" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/6e99ab9f162344e3bbdb80ff2b6977724cdd385f/static/live-coding/S_hzUenqAM0.jpg"></div></div></div><div class="content"><div class="header">Reaction Time Game</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Stopwatch" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/9f286d68328f1ca2a8f9f633e0c48f74618236e3/static/live-coding/RFXS871b50I.jpg"></div></div></div><div class="content"><div class="header">Stopwatch</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Compass" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/4b18340386bf313a9f1b9e30a94300e04cfd436f/static/live-coding/9IyssvevhJ0.jpg"></div></div></div><div class="content"><div class="header">Compass</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Arcade Buttons!" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/a5300a119411dbfb4fbe9c2e5f118e2fed5d784a/static/live-coding/Gy_B--9iuXQ.jpg"></div></div></div><div class="content"><div class="header">Arcade Buttons!</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Flashing Heart" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/5067ce1f1d7789f7fd23145cd63655548252d21e/static/live-coding/NvEOKZ8wh9s.jpg"></div></div></div><div class="content"><div class="header">Flashing Heart</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Flashing Heart" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/f4ddd131e0dc510ba2f1eb1cf134eab76540a120/static/live-coding/2Q9mf8a9Bt8.jpg"></div></div></div><div class="content"><div class="header">Flashing Heart</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Hack Your Headphone" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/29c38847a64c11b545e6563d86d1cbcd73bcd84f/static/live-coding/pC02U_YaSMw.jpg"></div></div></div><div class="content"><div class="header">Hack Your Headphone</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="7 second game" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/a1a103759cc6e8eade0acae91bb6a60c753c9786/static/live-coding/LINr5wa4okg.jpg"></div></div></div><div class="content"><div class="header">7 second game</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Multi Dice" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/5857b9610437f92b7db7fb55bd1e1fe05be983e8/static/live-coding/r-rsS4Pl6YQ.jpg"></div></div></div><div class="content"><div class="header">Multi Dice</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Step Counter" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/eef5f9ee4fcaaf11193850cb81c5286be483a82a/static/live-coding/TTI0OfoclcU.jpg"></div></div></div><div class="content"><div class="header">Step Counter</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Snap The Dot" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/c1364cb7319282ac0b7e9b2a11953e8d515fa483/static/live-coding/ew15T97VrF4.jpg"></div></div></div><div class="content"><div class="header">Snap The Dot</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="PlayList" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/a0fcafcb035c072049fbf1a1d35dbf3dded6ee36/static/live-coding/playlist.png"></div></div></div><div class="content"><div class="header">PlayList</div></div></div></div></div></div><span role="button" class="carouselarrow right aligned" tabindex="0" aria-label="See more"><i class="icon circle angle right " aria-hidden="true" role="presentation"></i></span></div></div></div></div><div class="ui segment gallerysegment" role="region" aria-label="Games"><h2 class="ui header heading">Games </h2><div class="content"><div><div class="ui carouselouter"><div class="carouselcontainer"><div class="carouselbody" style="width: 3240px; margin-left: 0px;"><div class="carouselitem "><div class="ui card  link example" aria-label="Rock Paper Scissors" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/49b5a6cb22d424ca0ecc4a9be40e3131555f36cd/static/mb/projects/a4-motion.png" style="background-image: url(&quot;https://pxt.azureedge.net/blob/49b5a6cb22d424ca0ecc4a9be40e3131555f36cd/static/mb/projects/a4-motion.png&quot;);"></div></div></div><div class="content"><div class="header">Rock Paper Scissors</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Coin Flipper" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/53bf6ef82031d61f77ea870ac7a09ec81ab827d9/static/mb/projects/coin-flipper.png" style="background-image: url(&quot;https://pxt.azureedge.net/blob/53bf6ef82031d61f77ea870ac7a09ec81ab827d9/static/mb/projects/coin-flipper.png&quot;);"></div></div></div><div class="content"><div class="header">Coin Flipper</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="7 seconds" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/fbcb39e7e207b8420d49a89ff6c37722db04a7a3/static/mb/projects/7-seconds.png" style="background-image: url(&quot;https://pxt.azureedge.net/blob/fbcb39e7e207b8420d49a89ff6c37722db04a7a3/static/mb/projects/7-seconds.png&quot;);"></div></div></div><div class="content"><div class="header">7 seconds</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Hot Potato" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/7943cd652a8d40145adac971ed236faea8e3865a/static/mb/projects/hot-potato.png" style="background-image: url(&quot;https://pxt.azureedge.net/blob/7943cd652a8d40145adac971ed236faea8e3865a/static/mb/projects/hot-potato.png&quot;);"></div></div></div><div class="content"><div class="header">Hot Potato</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Heads Guess!" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/e1cd97f5ed44fd7a9de8f9ac505f56c0519818bd/static/mb/projects/heads-guess.png" style="background-image: url(&quot;https://pxt.azureedge.net/blob/e1cd97f5ed44fd7a9de8f9ac505f56c0519818bd/static/mb/projects/heads-guess.png&quot;);"></div></div></div><div class="content"><div class="header">Heads Guess!</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Reaction Time" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/5c476ece3361a4f03f568c3079a3b607657e5600/static/mb/projects/reaction.jpg" style="background-image: url(&quot;https://pxt.azureedge.net/blob/5c476ece3361a4f03f568c3079a3b607657e5600/static/mb/projects/reaction.jpg&quot;);"></div></div></div><div class="content"><div class="header">Reaction Time</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Tug-Of-LED" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/58e84193e01123ccede06bcbd08a7ff9149c4f67/static/mb/projects/tug-of-led.png"></div></div></div><div class="content"><div class="header">Tug-Of-LED</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Magic Button Trick" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/6e19d321a2f74b2350b066eb6975e9daf7a9de55/static/mb/projects/magic-button-trick.png"></div></div></div><div class="content"><div class="header">Magic Button Trick</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Snap the dot" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/acf9073a183d57cda6f3ede5481c8c3d6cc074b4/static/mb/projects/snap-the-dot.png"></div></div></div><div class="content"><div class="header">Snap the dot</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Salute!" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/8dbe4892ad5c8fefd3ae8c94bdcfaf375b2418c4/static/mb/projects/salute.png"></div></div></div><div class="content"><div class="header">Salute!</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Karel the LED" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/b6ba95f517a555af4b60e3b2651bf4b45b00cea6/static/mb/projects/karel.png"></div></div></div><div class="content"><div class="header">Karel the LED</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Crashy bird" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/b8ee6a813f7ad3bf07e1ab001c0ec8b4533bee9d/static/mb/projects/crashy-bird.png"></div></div></div><div class="content"><div class="header">Crashy bird</div></div></div></div></div></div><span role="button" class="carouselarrow right aligned" tabindex="0" aria-label="See more"><i class="icon circle angle right " aria-hidden="true" role="presentation"></i></span></div></div></div></div><div class="ui segment gallerysegment" role="region" aria-label="Radio Games"><h2 class="ui header heading">Radio Games </h2><div class="content"><div><div class="ui carouselouter"><div class="carouselcontainer"><div class="carouselbody" style="width: 3240px; margin-left: 0px;"><div class="carouselitem "><div class="ui card  link example" aria-label="Multi Editors" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/1a12f370f97e6cc3155f2806d9d2a91279daa447/static/multi.png"></div></div></div><div class="content"><div class="header">Multi Editors</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Multi Dice" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/ec5f11b53fd8cc169282cda4c0137900f94c9bb2/static/mb/projects/multi-dice.png"></div></div></div><div class="content"><div class="header">Multi Dice</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Mood Radio" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/d64ef7926115c264357744690506c4b4b31a5a21/static/mb/projects/mood-radio.png"></div></div></div><div class="content"><div class="header">Mood Radio</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Tele-potato" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/bc064d39120791326c9aad79d1a68b86eb137912/static/mb/projects/tele-potato.png"></div></div></div><div class="content"><div class="header">Tele-potato</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Fireflies" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/86c57f90409d89d50724462fe67104b5005de5c8/static/mb/projects/fireflies.png"></div></div></div><div class="content"><div class="header">Fireflies</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Hot or Cold" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/3c4006f1f78d08c0cc8757c084f574dcbb418221/static/mb/projects/hot-or-cold.jpg"></div></div></div><div class="content"><div class="header">Hot or Cold</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Red Light Green Light" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/38953c4a233556fd0c8a50e820adf205ce941517/static/mb/projects/red-light-green-light.png"></div></div></div><div class="content"><div class="header">Red Light Green Light</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Voting Machine" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/c35aa054c09b82ed934ded10741199724bbaa6a5/static/mb/projects/voting-machine.png"></div></div></div><div class="content"><div class="header">Voting Machine</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Rock Paper Scissors Teams" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/2218a1e22aa8401562c288d44dc4ae9135185458/static/mb/projects/rpsteams.png"></div></div></div><div class="content"><div class="header">Rock Paper Scissors Teams</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Micro:Coin" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/2219ef13d9e4b84dc8a69f7eb765ec20a602c598/static/mb/projects/micro-coin.png"></div></div></div><div class="content"><div class="header">Micro:Coin</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Infection" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/05587ddaaffcbba58ef8fe5cedfa6eb5a28ef93d/static/mb/projects/infection.png"></div></div></div><div class="content"><div class="header">Infection</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Best Friends" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/d37d4ed1418e051bc5a7728b78484baef6aa36d1/static/mb/projects/best-friends.png"></div></div></div><div class="content"><div class="header">Best Friends</div></div></div></div></div></div><span role="button" class="carouselarrow right aligned" tabindex="0" aria-label="See more"><i class="icon circle angle right " aria-hidden="true" role="presentation"></i></span></div></div></div></div><div class="ui segment gallerysegment" role="region" aria-label="Fashion"><h2 class="ui header heading">Fashion </h2><div class="content"><div><div class="ui carouselouter"><div class="carouselcontainer"><div class="carouselbody" style="width: 1525px; margin-left: 0px;"><div class="carouselitem "><div class="ui card  link example" aria-label="Duct Tape Wallet" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/02f34ed7967954ad03ead799a02ff685a9a7b1be/static/mb/projects/wallet.png"></div></div></div><div class="content"><div class="header">Duct Tape Wallet</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Watch" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/9781b7592b0254a749058161321d10a303cbb8c3/static/mb/projects/a10-watch.png"></div></div></div><div class="content"><div class="header">Watch</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Step counter" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/9454f9aabb1f3a01f19d623ca336333baa07280c/static/mb/projects/step-counter.png"></div></div></div><div class="content"><div class="header">Step counter</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Duct Tape Watch" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/160ebb4fd07f702bee5fbd977de6ee09cbf64d88/static/mb/projects/duct-tape-watch.png"></div></div></div><div class="content"><div class="header">Duct Tape Watch</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Name badge" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/97fb936917af50584b4b454886f0b2e17f0db974/static/mb/projects/name-badge.png"></div></div></div><div class="content"><div class="header">Name badge</div></div></div></div></div></div></div></div></div></div><div class="ui segment gallerysegment" role="region" aria-label="Music"><h2 class="ui header heading">Music </h2><div class="content"><div><div class="ui carouselouter"><div class="carouselcontainer"><div class="carouselbody" style="width: 1035px; margin-left: 0px;"><div class="carouselitem "><div class="ui card  link example" aria-label="Hack Your Headphones" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/6a1e39f158250b5aa6d577e4bb8058e3be3107c5/static/mb/projects/a6-music.png"></div></div></div><div class="content"><div class="header">Hack Your Headphones</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Banana Keyboard" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/1c3ab640d9959394a118f71113526a2171ebe337/static/mb/projects/a7-conductive.png"></div></div></div><div class="content"><div class="header">Banana Keyboard</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Guitar" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/6866549bb7da7e384020892e45764f82b47d86cc/static/mb/projects/guitar.png"></div></div></div><div class="content"><div class="header">Guitar</div></div></div></div></div></div></div></div></div></div><div class="ui segment gallerysegment" role="region" aria-label="Toys"><h2 class="ui header heading">Toys </h2><div class="content"><div><div class="ui carouselouter"><div class="carouselcontainer"><div class="carouselbody" style="width: 2750px; margin-left: 0px;"><div class="carouselitem "><div class="ui card  link example" aria-label="Inchworm" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/d984848ed5cfd4bb3d1f74d3b2c34983ab0bb755/static/mb/projects/inchworm.jpg"></div></div></div><div class="content"><div class="header">Inchworm</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Milk Carton Robot" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/b2e3dfcb937263c780aebfa1ffff5d9852819f76/static/mb/projects/milk-carton-robot.jpg"></div></div></div><div class="content"><div class="header">Milk Carton Robot</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Robot Unicorn" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/0299b8510f51cf82a26ac6717b2a6a41a2c65e33/static/mb/projects/robot-unicorn/robotunicorn.jpg"></div></div></div><div class="content"><div class="header">Robot Unicorn</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Ticklebot" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/8079e12ec4825d7a1a05ba26b6e5a20b74861204/static/mb/projects/ticklebot.jpg"></div></div></div><div class="content"><div class="header">Ticklebot</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Octobot" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/8d360b0eaf549a4055f827beb478213b4ec038ac/static/mb/projects/octobot.jpg"></div></div></div><div class="content"><div class="header">Octobot</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Two Player Maze" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/356a0f116c6394810752309ae92c8c75829573e8/static/mb/projects/twoplayermaze.jpg"></div></div></div><div class="content"><div class="header">Two Player Maze</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Milky Monster" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/42026d8cb788c73cc2ab41a8ad20c4775c6b6210/static/mb/projects/milky-monster.jpg"></div></div></div><div class="content"><div class="header">Milky Monster</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Railway Crossing" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/f5621352fec64fd7adf395bf6e8978144becbc0f/static/mb/projects/railway-crossing.png"></div></div></div><div class="content"><div class="header">Railway Crossing</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Kitronik RC Car Hack" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/22b044e10774fb9e4ce471f4d4c6e2221285225b/static/mb/projects/rc-car.jpg"></div></div></div><div class="content"><div class="header">Kitronik RC Car Hack</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Rotary Dial Radio" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/9e1df0020b88b557a074762bfc7973019e147293/static/mb/projects/rotary-dial-radio.png"></div></div></div><div class="content"><div class="header">Rotary Dial Radio</div></div></div></div></div></div><span role="button" class="carouselarrow right aligned" tabindex="0" aria-label="See more"><i class="icon circle angle right " aria-hidden="true" role="presentation"></i></span></div></div></div></div><div class="ui segment gallerysegment" role="region" aria-label="Science"><h2 class="ui header heading">Science </h2><div class="content"><div><div class="ui carouselouter"><div class="carouselcontainer"><div class="carouselbody" style="width: 1280px; margin-left: 0px;"><div class="carouselitem "><div class="ui card  link example" aria-label="Timing Gates" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/ca012263c4ef9c6e947e935431e9fd3a9a5eda8e/static/mb/projects/timegate.jpg"></div></div></div><div class="content"><div class="header">Timing Gates</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Soil Moisture" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/b92498c1c8a9405f561223fe79fa157b0bfca2d8/static/mb/projects/soilmoisture.jpg"></div></div></div><div class="content"><div class="header">Soil Moisture</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Plant Watering" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/a4db332fa7a5c4a67a76a5c711aff2218a947df8/static/mb/projects/plantwatering.jpg"></div></div></div><div class="content"><div class="header">Plant Watering</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="States of Matter" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/927b5b97850737824cb5deb25ffa76196fd0440e/static/mb/projects/som.jpg"></div></div></div><div class="content"><div class="header">States of Matter</div></div></div></div></div></div></div></div></div></div><div class="ui segment gallerysegment" role="region" aria-label="Tools"><h2 class="ui header heading">Tools </h2><div class="content"><div><div class="ui carouselouter"><div class="carouselcontainer"><div class="carouselbody" style="width: 2260px; margin-left: 0px;"><div class="carouselitem "><div class="ui card  link example" aria-label="Stopwatch" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/08f4dfd75a0609e5b15aa8d7ce74a4b9f3d43660/static/mb/projects/stopwatch.png"></div></div></div><div class="content"><div class="header">Stopwatch</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Level" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/19adbfcbd3a4b3797f468b08f058d9e1ff1b18dd/static/mb/projects/level.png"></div></div></div><div class="content"><div class="header">Level</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Compass" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/d3e34ce80d0f558d6dda199a5c33f9770ab93d2f/static/mb/projects/a5-compass.png"></div></div></div><div class="content"><div class="header">Compass</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Plot Acceleration" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/6c5df7122aa585e7afe0e28241d86c86d618fb50/static/mb/projects/plot-acceleration.png"></div></div></div><div class="content"><div class="header">Plot Acceleration</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Light Level Meter" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/26a8515fe0815c95eb40da0612a58b27e8055434/static/mb/projects/light-level-meter.png"></div></div></div><div class="content"><div class="header">Light Level Meter</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Analog Pin Tester" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/9490edfeaf0b05af32f9e85d0b7558b869668b09/static/mb/projects/analog-pin-tester.png"></div></div></div><div class="content"><div class="header">Analog Pin Tester</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Servo Calibrator" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/bf3adc67d893471bcb97475e63043060fa6f5301/static/mb/projects/servo-calibrator.png"></div></div></div><div class="content"><div class="header">Servo Calibrator</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Radio Bridge" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/8d6f9428c66a61decec54432f63a9d914423e777/static/mb/projects/radio-bridge.png"></div></div></div><div class="content"><div class="header">Radio Bridge</div></div></div></div></div></div><span role="button" class="carouselarrow right aligned" tabindex="0" aria-label="See more"><i class="icon circle angle right " aria-hidden="true" role="presentation"></i></span></div></div></div></div><div class="ui segment gallerysegment" role="region" aria-label="Turtle"><h2 class="ui header heading">Turtle </h2><div class="content"><div><div class="ui carouselouter"><div class="carouselcontainer"><div class="carouselbody" style="width: 1035px; margin-left: 0px;"><div class="carouselitem "><div class="ui card  link example" aria-label="Square" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/c2d0656df501cefb677bc119c17ebd1858fe4cdf/static/mb/projects/turtle-square.png"></div></div></div><div class="content"><div class="header">Square</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Spiral" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/8cacf446466d44be87beca3a628c7358493c05f5/static/mb/projects/turtle-spiral.png"></div></div></div><div class="content"><div class="header">Spiral</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Scanner" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/7c2c72e8981d5179af58c6358e71f14b5b841070/static/mb/projects/turtle-scanner.png"></div></div></div><div class="content"><div class="header">Scanner</div></div></div></div></div></div></div></div></div></div><div class="ui segment gallerysegment" role="region" aria-label="Blocks To JavaScript"><h2 class="ui header heading">Blocks To JavaScript </h2><div class="content"><div><div class="ui carouselouter"><div class="carouselcontainer"><div class="carouselbody" style="width: 2015px; margin-left: 0px;"><div class="carouselitem "><div class="ui card  link example" aria-label="Hello JavaScript" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/71f6dbe0e456902f15e3d55bc9be97e755b0d7a7/static/courses/blocks-to-javascript/hello-javascript.png"></div></div></div><div class="content"><div class="header">Hello JavaScript</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Starter Blocks" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/dd72f0cb8ad54f82469219c63baf00da88434655/static/courses/blocks-to-javascript/starter-blocks.png"></div></div></div><div class="content"><div class="header">Starter Blocks</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Writing Code" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/ec23dcee926f67f398f3096a39c98ea14e8e7319/static/courses/blocks-to-javascript/writing-code.png"></div></div></div><div class="content"><div class="header">Writing Code</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Complex Conditionals" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/8565f996935bf8c582f952d047784d940827da3e/static/courses/blocks-to-javascript/conditionals.png"></div></div></div><div class="content"><div class="header">Complex Conditionals</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Conditional Loops" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/df286eec4a982ac70b56854d62b1ebc10aa81552/static/courses/blocks-to-javascript/conditional-loops.png"></div></div></div><div class="content"><div class="header">Conditional Loops</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Command Responder" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/1d77598829e7d34b4c3ecb70687e34b28d9ffd2d/static/courses/blocks-to-javascript/command-responder.png"></div></div></div><div class="content"><div class="header">Command Responder</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Writing Functions" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/ec23dcee926f67f398f3096a39c98ea14e8e7319/static/courses/blocks-to-javascript/writing-code.png"></div></div></div><div class="content"><div class="header">Writing Functions</div></div></div></div></div></div><span role="button" class="carouselarrow right aligned" tabindex="0" aria-label="See more"><i class="icon circle angle right " aria-hidden="true" role="presentation"></i></span></div></div></div></div><div class="ui segment gallerysegment" role="region" aria-label="Courses"><h2 class="ui header heading">Courses </h2><div class="content"><div><div class="ui carouselouter"><div class="carouselcontainer"><div class="carouselbody" style="width: 4465px; margin-left: 0px;"><div class="carouselitem "><div class="ui card  link example" aria-label="Intro to CS Online" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/ce157b871e8d7330375d8dc8ade57d7426259ef4/static/courses/csintro.jpg"></div></div></div><div class="content"><div class="header">Intro to CS Online</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Intro to CS Classroom" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/68dbc34cb4f4d78962ce83c5908fc45d464359e5/static/courses/csintro-educator.jpg"></div></div></div><div class="content"><div class="header">Intro to CS Classroom</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Science Experiments" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/af0c175d0cd21f0bc04d407ae6804a2b3b1749e7/static/courses/ucp-science.jpg"></div></div></div><div class="content"><div class="header">Science Experiments</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Cyber Arcade: Programming and Making with micro:bit" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/252d2c401f3a88466847557836a6930489b529a1/static/courses/maker-ed-cyber-arcade.png"></div></div></div><div class="content"><div class="header">Cyber Arcade: Programming and Making with micro:bit</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Learn All About micro:bit" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/ab890a52da1d929915040ee7ed61cf31fee98a52/static/courses/beaconhill.jpg"></div></div></div><div class="content"><div class="header">Learn All About micro:bit</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Coding and Innovation" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/b591bdad3849f940b262971c88a553e27ab1b1fd/static/courses/coding-innovation.jpg"></div></div></div><div class="content"><div class="header">Coding and Innovation</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="First Steps" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/4d53372d91b069dad961e79bdb2bf0c5eb5909cf/static/courses/first-steps.png"></div></div></div><div class="content"><div class="header">First Steps</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Make it: code it" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/3d34178663e288e89f8d83f4eea31df021cf78a5/static/courses/make-it-code-it.png"></div></div></div><div class="content"><div class="header">Make it: code it</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Networking with the micro:bit" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/8d1dc902991ca290e8e407ee1d0ae20ab20fff8d/static/courses/networking-book.png"></div></div></div><div class="content"><div class="header">Networking with the micro:bit</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="SparkFun Videos" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://i.ytimg.com/vi/kaNtg1HGXbY/hqdefault.jpg"></div></div></div><div class="content"><div class="header">SparkFun Videos</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Logic Lab" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/913547b648afa8249a5780595b4007de3b8ecad4/static/courses/logic-lab.png"></div></div></div><div class="content"><div class="header">Logic Lab</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="CodeJoy Remote Robotics" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/b13c985501b729c0fec1ea6b4bf2a0446a56edaf/static/courses/codejoy.png"></div></div></div><div class="content"><div class="header">CodeJoy Remote Robotics</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Blocks to JavaScript" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/71f6dbe0e456902f15e3d55bc9be97e755b0d7a7/static/courses/blocks-to-javascript.png"></div></div></div><div class="content"><div class="header">Blocks to JavaScript</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="SparkFun Inventor&#39;s Kit" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/73d353931ed64c8370c12ad0bfdcfc97e1cbeb62/static/courses/sparkfun-inventors-kit.png"></div></div></div><div class="content"><div class="header">SparkFun Inventor's Kit</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Kitronik Inventor Kit" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/403e9de421964346b5ce7b70ccdfd39a80293113/static/courses/kitronik-inventor-kit.png"></div></div></div><div class="content"><div class="header">Kitronik Inventor Kit</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="micro:bit of Things" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/05168e4f99c0497b8f212e08c5cf39ee505b3400/static/courses/microbit-of-things.jpg"></div></div></div><div class="content"><div class="header">micro:bit of Things</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="A-Z Robotics" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/252b5a5fe4d961a5e97f85cf0fa3bf9588158b10/static/courses/tinkerspark.jpg"></div></div></div><div class="content"><div class="header">A-Z Robotics</div></div></div></div></div></div><span role="button" class="carouselarrow right aligned" tabindex="0" aria-label="See more"><i class="icon circle angle right " aria-hidden="true" role="presentation"></i></span></div></div></div></div><div class="ui segment gallerysegment" role="region" aria-label="Behind the MakeCode Hardware"><h2 class="ui header heading">Behind the MakeCode Hardware </h2><div class="content"><div><div class="ui carouselouter"><div class="carouselcontainer"><div class="carouselbody" style="width: 2505px; margin-left: 0px;"><div class="carouselitem "><div class="ui card  link example" aria-label="LEDs" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/e72927e4891dbfd8231e42bc6e80a58872e11938/static/mb/behindhardware/leds.jpg"></div></div></div><div class="content"><div class="header">LEDs</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Buttons" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/43a5bd7c6a36efa1f646de13568eb0ffbfb7fed2/static/mb/behindhardware/buttons.jpg"></div></div></div><div class="content"><div class="header">Buttons</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Accelerometer" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/ebad6889828f08e8584451ec09506e5ef9420fda/static/mb/behindhardware/accelerometer.jpg"></div></div></div><div class="content"><div class="header">Accelerometer</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Light Sensor" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/cbe1c11c72f330b5f6cae9e86980e6aa7e664260/static/mb/behindhardware/light-sensor.jpg"></div></div></div><div class="content"><div class="header">Light Sensor</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Temperature Sensor" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/ad111bae4df3c5efb33329763d5ea520be444d2d/static/mb/behindhardware/temperature-sensor.jpg"></div></div></div><div class="content"><div class="header">Temperature Sensor</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Pin Pressed" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/430c372825016e8e6c2f8f9b2a9da03c938377c7/static/mb/behindhardware/pin-pressed.jpg"></div></div></div><div class="content"><div class="header">Pin Pressed</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Radio" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/02b076638bffab9e302ca149d4a93218897ab207/static/mb/behindhardware/radio.jpg"></div></div></div><div class="content"><div class="header">Radio</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Servo Motor" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/4610cf1702dde88482df1a7f7f534001497ce775/static/mb/behindhardware/servo.jpg"></div></div></div><div class="content"><div class="header">Servo Motor</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Speakers" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/90ea3c47df8ab6ab1588a19fe48b504768e032d0/static/mb/behindhardware/speakers.jpg"></div></div></div><div class="content"><div class="header">Speakers</div></div></div></div></div></div><span role="button" class="carouselarrow right aligned" tabindex="0" aria-label="See more"><i class="icon circle angle right " aria-hidden="true" role="presentation"></i></span></div></div></div></div><div class="ui segment gallerysegment" role="region" aria-label="Science Experiments"><h2 class="ui header heading">Science Experiments </h2><div class="content"><div><div class="ui carouselouter"><div class="carouselcontainer"><div class="carouselbody" style="width: 2260px; margin-left: 0px;"><div class="carouselitem "><div class="ui card  link example" aria-label="Data Collection" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/73c4fc32f94f93a14b39d52a81b51616118e2fd7/static/mb/science-experiments/data-collection.jpg"></div></div></div><div class="content"><div class="header">Data Collection</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Population Trait Counter" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/672132fecad92537ec9cc53712e5cfd8d1934980/static/mb/science-experiments/population-trait.jpg"></div></div></div><div class="content"><div class="header">Population Trait Counter</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Temperature Sensor" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/dd8866cd460462d0d1cc806f6509281e158a3a5a/static/mb/science-experiments/temperature-sensor.jpg"></div></div></div><div class="content"><div class="header">Temperature Sensor</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Soil Moisture Sensor" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/276ed772c717d42bfd6aaca69e1cc838913b3688/static/mb/science-experiments/soil-moisture.jpg"></div></div></div><div class="content"><div class="header">Soil Moisture Sensor</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="EMG Muscle Sensor" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/bc90db9f7bee7105ede0e24c42a15708fdd5b1ad/static/mb/science-experiments/emg-muscle-sensor.jpg"></div></div></div><div class="content"><div class="header">EMG Muscle Sensor</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Egg Drop" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/70af283e849dfae2cec04d16eb27212233f69f14/static/mb/science-experiments/egg-drop.jpg"></div></div></div><div class="content"><div class="header">Egg Drop</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Battery Tester" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/bc44f33688e55e4a8df5397532a25f8274a6cc0e/static/mb/science-experiments/battery-tester.jpg"></div></div></div><div class="content"><div class="header">Battery Tester</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Rocket Acceleration" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/b8f11bd2bf2e25bc1a18b26054a3b22850e275d5/static/mb/science-experiments/rocket-acceleration.jpg"></div></div></div><div class="content"><div class="header">Rocket Acceleration</div></div></div></div></div></div><span role="button" class="carouselarrow right aligned" tabindex="0" aria-label="See more"><i class="icon circle angle right " aria-hidden="true" role="presentation"></i></span></div></div></div></div><div class="ui segment gallerysegment" role="region" aria-label="Coding for Teachers"><h2 class="ui header heading">Coding for Teachers </h2><div class="content"><div><div class="ui carouselouter"><div class="carouselcontainer"><div class="carouselbody" style="width: 2995px; margin-left: 0px;"><div class="carouselitem "><div class="ui card  link example" aria-label="Part 1 - Introduction" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/b3b9f903c16ef71233098dc858f975b00d9cfffd/static/coding-for-teachers/hr8O_pslp8Q.jpg"></div></div></div><div class="content"><div class="header">Part 1 - Introduction</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Part 2 - Connect &amp; Code" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/70be3e89bd47d8aff7a992c4d5098d4e1df2e053/static/coding-for-teachers/_cTHlQXwEO4.jpg"></div></div></div><div class="content"><div class="header">Part 2 - Connect &amp; Code</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Part 3A - LED lighting" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/e6499f66985b2e1ecc630aa1ced7e5ff1617d994/static/coding-for-teachers/gnSRkUxBV18.jpg"></div></div></div><div class="content"><div class="header">Part 3A - LED lighting</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Part 3B - LED Neopixels" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/8d2c9edbcc7552506b8075ea653ec3d6b3a4d9ad/static/coding-for-teachers/G5LjM_Izk88.jpg"></div></div></div><div class="content"><div class="header">Part 3B - LED Neopixels</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Part 4 - Making Music" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/1e4747781e36b268d21b53e9cf7b74ce715fa68a/static/coding-for-teachers/6hxvLZSM_pM.jpg"></div></div></div><div class="content"><div class="header">Part 4 - Making Music</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Part 5 - Motors &amp; Servos" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/7ac3b8e06b4770171c500625eaeb458eb7683b95/static/coding-for-teachers/BDMm0C94wEw.jpg"></div></div></div><div class="content"><div class="header">Part 5 - Motors &amp; Servos</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Part 6 - Coding tips - Variables and Conditionals" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/70211727bbee106aac8016f7cda3a39483de34d7/static/coding-for-teachers/Z_Gy8yEhq2Q.jpg"></div></div></div><div class="content"><div class="header">Part 6 - Coding tips - Variables and Conditionals</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Part 7 - Making a Virtual Pet" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/29c62511ab5d906d66021ad2eb5414c9b88e1d84/static/coding-for-teachers/zc3njwmP_O8.jpg"></div></div></div><div class="content"><div class="header">Part 7 - Making a Virtual Pet</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Part 8 - Making a servo powered waving arm and inch worm" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/df18b15c4426d2a526dabc9a090f8d464f1bf2b3/static/coding-for-teachers/e1H0e6un7DY.jpg"></div></div></div><div class="content"><div class="header">Part 8 - Making a servo powered waving arm and inch worm</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Part 9 - Making a digital dice" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/e0320fd6a5272e01f460409e11e93cf646499a7e/static/coding-for-teachers/XlybhOO8838.jpg"></div></div></div><div class="content"><div class="header">Part 9 - Making a digital dice</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="PlayList" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/e0292018fb817c67534f00634cf54caefc13d701/static/coding-for-teachers/playlist.png"></div></div></div><div class="content"><div class="header">PlayList</div></div></div></div></div></div><span role="button" class="carouselarrow right aligned" tabindex="0" aria-label="See more"><i class="icon circle angle right " aria-hidden="true" role="presentation"></i></span></div></div></div></div><div class="ui segment gallerysegment" role="region" aria-label="Coding Cards"><h2 class="ui header heading">Coding Cards </h2><div class="content"><div><div class="ui carouselouter"><div class="carouselcontainer"><div class="carouselbody" style="width: 2260px; margin-left: 0px;"><div class="carouselitem "><div class="ui card  link example" aria-label="Make a Digital Balance" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/6b23939cba12166b5392cdcb911f0f88efbf050f/static/coding-cards/balance-card.jpg"></div></div></div><div class="content"><div class="header">Make a Digital Balance</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Make a Digital Dice" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/94fac1a09c2a69cf26879e94a620df0c5a6aeb87/static/coding-cards/dice-card.jpg"></div></div></div><div class="content"><div class="header">Make a Digital Dice</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Make a Trundle Wheel" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/c3ae03f5562aca2d9b130e5266cd473c38ec2ed4/static/coding-cards/trundlewheel-card.jpg"></div></div></div><div class="content"><div class="header">Make a Trundle Wheel</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Nervous" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/772ddd245a8d2b6fdddc7b21c1ee22d807f594fe/static/coding-cards/games-nervous.jpg"></div></div></div><div class="content"><div class="header">Nervous</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Reaction" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/a2e50f68968ce48b60e55427f28d37ab8e16c269/static/coding-cards/games-reaction.jpg"></div></div></div><div class="content"><div class="header">Reaction</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Shake the Bottle" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/2f4a51bf53e02d10f8e2ae528b778d09c323c44c/static/coding-cards/games-shake.jpg"></div></div></div><div class="content"><div class="header">Shake the Bottle</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Sprite Based Games" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/caa6533ed2cb6da878023f710180785734124c16/static/coding-cards/games-sprite.jpg"></div></div></div><div class="content"><div class="header">Sprite Based Games</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Zen" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/9677eb375951c2d85c9483ee43fd430bb3bf7c90/static/coding-cards/games-zen.jpg"></div></div></div><div class="content"><div class="header">Zen</div></div></div></div></div></div><span role="button" class="carouselarrow right aligned" tabindex="0" aria-label="See more"><i class="icon circle angle right " aria-hidden="true" role="presentation"></i></span></div></div></div></div><div class="ui segment gallerysegment" role="region" aria-label="Deep Dive"><h2 class="ui header heading">Deep Dive </h2><div class="content"><div><div class="ui carouselouter"><div class="carouselcontainer"><div class="carouselbody" style="width: 3730px; margin-left: 0px;"><div class="carouselitem "><div class="ui card  link example" aria-label="MakeCode for the micro:bit – 2020 Beta Release" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/d8cb13886abe35c5f103f9c51095900d35f57e92/static/deep-dive/RpK4Cg42eNk.jpg"></div></div></div><div class="content"><div class="header">MakeCode for the micro:bit – 2020 Beta Release</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="WebUSB" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/adc92027de885073a3a6bd1cb391b597f4df2bc7/static/deep-dive/_-xtP2FH9B8.jpg"></div></div></div><div class="content"><div class="header">WebUSB</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Melody Block and Multi Editor!" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/de4086e24258c02fed3c8f5d45b37bc28da086f3/static/deep-dive/IkZKTzp7H0k.jpg"></div></div></div><div class="content"><div class="header">Melody Block and Multi Editor!</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Functions" tabindex="0"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/9d57e11e32c0fcffe4903efe5619b91bd6981a89/static/deep-dive/qDNdaeEMtjA.jpg"></div></div></div><div class="content"><div class="header">Functions</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Debugger" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/e87c23397152b57aa6a2b3c175353ec971b71bce/static/deep-dive/pFKMljVFMsU.jpg"></div></div></div><div class="content"><div class="header">Debugger</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="GitHub" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/c1eee95212ba885b227d18d870309f9821c1e762/static/deep-dive/BUNf_UiA_MY.jpg"></div></div></div><div class="content"><div class="header">GitHub</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="GitHub for Extensions" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/450bdcdbc3e97258ae8818fa66f41d2a57aa7ae4/static/deep-dive/ztrm4XehfGo.jpg"></div></div></div><div class="content"><div class="header">GitHub for Extensions</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Python!" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/ad6f1ff167a298dcbcd09b1152bc1ba22167bd91/static/deep-dive/qBNU9qR3gXw.jpg"></div></div></div><div class="content"><div class="header">Python!</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="In Context Translations" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/ee2acbcd8aae81024d60be16fdeca73ecee74e73/static/deep-dive/JVTyuFDGHik.jpg"></div></div></div><div class="content"><div class="header">In Context Translations</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Creating Tutorials" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/901985ae5098a8eec6b688ca228ce77f94816df2/static/deep-dive/R-kY-dQXZvA.jpg"></div></div></div><div class="content"><div class="header">Creating Tutorials</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="GitHub Explorer" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/b0418e430b1c3dff53a94684f4a2a2eecc88243b/static/deep-dive/76fNLYOAyl4.jpg"></div></div></div><div class="content"><div class="header">GitHub Explorer</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="Custom blocks" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/8a2c5c16a1f3c3b93ce78e3241da5dff31683138/static/deep-dive/Ku_nHstZS64.jpg"></div></div></div><div class="content"><div class="header">Custom blocks</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="MakeCode for micro:bit 2020 release" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/6aed02d2bcc2e8ce77f119e8463223a6902f765b/static/deep-dive/jjTUjrlw8vQ.jpg"></div></div></div><div class="content"><div class="header">MakeCode for micro:bit 2020 release</div></div></div></div><div class="carouselitem "><div class="ui card  link example" aria-label="PlayList" tabindex="-1"><div class="ui image"><div class="ui imagewrapper" aria-hidden="true" role="presentation"><div class="ui cardimage" data-src="https://pxt.azureedge.net/blob/f32312b20ce5d15b7471981dfa744be0f40b7f3a/static/deep-dive/playlist.png"></div></div></div><div class="content"><div class="header">PlayList</div></div></div></div></div></div><span role="button" class="carouselarrow right aligned" tabindex="0" aria-label="See more"><i class="icon circle angle right " aria-hidden="true" role="presentation"></i></span></div></div></div></div><div class="ui horizontal small divided link list homefooter"><a class="item" target="_blank" rel="noopener noreferrer" href="https://makecode.com/">Microsoft MakeCode</a><a class="ui icon icon-and-text  item" rel="" tabindex="0"><i class="icon xicon globe icon-and-text  " aria-hidden="true" role="presentation"></i><span class="ui text">Language</span></a><a target="_blank" class="item" href="https://makecode.com/termsofuse" rel="noopener noreferrer">Terms of Use</a><a target="_blank" class="item" href="https://makecode.com/privacy" rel="noopener noreferrer">Privacy</a><a class="ui   item" rel="" tabindex="0"><span class="ui text">v3.0.68</span></a></div></div></div></div><div></div><div></div><div></div></div></div>
+        </div>
+    </div>
+
+    <div id="msg" aria-live="polite">
+        <div id="errmsg" class="ui red inverted segment"></div>
+        <div id="warnmsg" class="ui orange inverted segment"></div>
+        <div id="infomsg" class="ui teal inverted segment"></div>
+        <div id="compilemsg" class="ui ignored info message"></div>
+    </div>
+
+    <script>
+        // This line gets patched up by the cloud
+        var pxtConfig = {
+    "relprefix": "/---",
+    "verprefix": "",
+    "workerjs": "/---worker",
+    "tdworkerjs": "/---tdworker",
+    "monacoworkerjs": "/---monacoworker",
+    "gifworkerjs": "/---gifworker",
+    "serviceworkerjs": "/---serviceworker",
+    "pxtVersion": "?",
+    "pxtRelId": "0da1704a1fb49842d847f17d47e1f19b744de89f",
+    "pxtCdnUrl": "https://pxt.azureedge.net/commit/0da1704a1fb49842d847f17d47e1f19b744de89f/",
+    "commitCdnUrl": "https://pxt.azureedge.net/commit/0da1704a1fb49842d847f17d47e1f19b744de89f/",
+    "blobCdnUrl": "https://pxt.azureedge.net/commit/0da1704a1fb49842d847f17d47e1f19b744de89f/",
+    "targetUrl": "https://makecode.microbit.org",
+    "targetVersion": "?",
+    "targetRelId": "0da1704a1fb49842d847f17d47e1f19b744de89f",
+    "targetCdnUrl": "https://pxt.azureedge.net/commit/0da1704a1fb49842d847f17d47e1f19b744de89f/",
+    "targetId": "microbit",
+    "runUrl": "/---run",
+    "docsUrl": "/---docs",
+    "multiUrl": "/---multi",
+    "asseteditorUrl": "/---asseteditor",
+    "skillmapUrl": "/---skillmap",
+    "partsUrl": "https://trg-microbit.userpxt.io/---siminstructions",
+    "simUrl": "https://trg-microbit.userpxt.io/---simulator",
+    "simserviceworkerUrl": "https://trg-microbit.userpxt.io/---simserviceworker",
+    "simworkerconfigUrl": "https://trg-microbit.userpxt.io/---simworkerconfig",
+    "cdnUrl": "https://pxt.azureedge.net"
+};
+    </script>
+    
+<!-- include apptrackingweb.html -->
+<script type="text/javascript" src="./MicroCode_files/pxtweb.js.download"></script>
+<!-- end include apptrackingweb.html -->
+
+    
+<!-- include apptracking.html -->
+<script type="text/javascript">
+    window.loadAppInsights = function (includeCookie, telemetryInitializer) {
+        var appInsights=window.appInsights||function(config){
+            function i(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s="AuthenticatedUserContext",h="start",c="stop",l="Track",a=l+"Event",v=l+"Page",y=u.createElement(o),r,f;y.src=config.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(y);try{t.cookie=u.cookie}catch(p){}for(t.queue=[],t.version="1.0",r=["Event","Exception","Metric","PageView","Trace","Dependency"];r.length;)i("track"+r.pop());return i("set"+s),i("clear"+s),i(h+a),i(c+a),i(h+v),i(c+v),i("flush"),config.disableExceptionTracking||(r="onerror",i("_"+r),f=e[r],e[r]=function(config,i,u,e,o){var s=f&&f(config,i,u,e,o);return s!==!0&&t["_"+r](config,i,u,e,o),s}),t
+        }({
+            instrumentationKey:"9801ed01-c40f-46ec-aa40-2a1742a9e71c",
+            disableAjaxTracking: true,
+            overridePageViewDuration: false,
+            disableExceptionTracking: true,
+            isCookieUseDisabled: !includeCookie,
+            isStorageUseDisabled: !includeCookie,
+            url: "https://pxt.azureedge.net/blob/19d7a44717e709a6fe934f77d3d67efcc8e226e9/ai.0.js"
+        });
+        window.appInsights=appInsights;
+        appInsights.queue.push(function () {
+            appInsights.context.addTelemetryInitializer(telemetryInitializer);
+        });
+        appInsights.trackPageView(null, scrubUrl(window.location.toString()), {urlReferrer: scrubUrl(document.referrer.toString())});
+
+        //Scrub the key (if any) from the URL.
+        function scrubUrl(url) {
+            var scriptIdRegex = /(?:\d{5}-\d{5}-\d{5}-\d{5})|(?:_[0-9a-zA-Z]{12})/g;
+            return url.replace(scriptIdRegex, "xxxxx-xxxxx-xxxxx-xxxxx");
+        }
+    }
+    pxt.initAnalyticsAsync();
+</script>
+<!-- end include apptracking.html -->
+
+    <script type="text/javascript" src="./MicroCode_files/pxtapp.js.download"></script>
+    <script type="text/javascript" src="./MicroCode_files/target.js.download"></script>
+    <script id="mainscript" type="text/javascript" src="./MicroCode_files/main.js.download"></script>
+    <xml id="blocklyToolboxDefinitionCategory" style="display: none">
+        <!-- An empty category is required so that Blockly launches in category mode -->
+        <category name="">
+        </category>
+    </xml>
+    <xml id="blocklyToolboxDefinitionFlyout" style="display: none">
+    </xml>
+    <script>
+        // Before loading vs/editor/editor.main, define a global MonacoEnvironment that overwrites
+        // the default worker url location (used when creating WebWorkers). The problem here is that
+        // HTML5 does not (yet) allow cross-domain web workers, so we need to proxy the instantion of
+        // a web worker through a same-domain script
+        window.MonacoEnvironment = {
+            getWorkerUrl: function(workerId, label) {
+                return pxt.webConfig.monacoworkerjs;
+            }
+        };
+
+        // this get rewritten to blob URLs with SHAs while uploading to the cloud
+        // keep in sync with release.manifest
+        window.MonacoPaths = {
+            "vs/loader": "https://pxt.azureedge.net/blob/2ef592490db2172a393f660ad03a7b4cf27032ee/vs/loader.js",
+            "vs/base/worker/workerMain": "https://pxt.azureedge.net/blob/02c229bd3186f79db7a4c7f0c3b82e71206c9f52/vs/base/worker/workerMain.js",
+            "vs/basic-languages/bat/bat": "https://pxt.azureedge.net/blob/f8da2b83e96824babdd0681305c5b9c82d67e4ee/vs/basic-languages/bat/bat.js",
+            "vs/basic-languages/cpp/cpp": "https://pxt.azureedge.net/blob/dd0e27faae3eef78f947c707f73ee8c41f570da0/vs/basic-languages/cpp/cpp.js",
+            "vs/basic-languages/markdown/markdown": "https://pxt.azureedge.net/blob/c4c2d1d96348e1a663a0ece649ba4ddbf9224d31/vs/basic-languages/markdown/markdown.js",
+            "vs/basic-languages/python/python": "https://pxt.azureedge.net/blob/850955e63d303ab7f476f9f0e0993bbf7dd4c251/vs/basic-languages/python/python.js",
+            "vs/editor/editor.main.css": "https://pxt.azureedge.net/blob/f18988093920168a0879277026f07f987eb20ce6/vs/editor/editor.main.css",
+            "vs/editor/editor.main": "https://pxt.azureedge.net/blob/f91a098a99088ba6bf0e4dcd346518f53f575b71/vs/editor/editor.main.js",
+            "vs/editor/editor.main.nls": "https://pxt.azureedge.net/blob/5b3c1560d1a3a88d898e5211dd7f9bc37309e9a4/vs/editor/editor.main.nls.js",
+            "vs/language/json/jsonMode": "https://pxt.azureedge.net/blob/ed83df41b47178ff9c4a39f07c6460733159076a/vs/language/json/jsonMode.js",
+            "vs/language/json/jsonWorker": "https://pxt.azureedge.net/blob/cd1685860e190dda44400fa30d39f44cea516dfa/vs/language/json/jsonWorker.js",
+            "lzma/lzma_worker-min.js": "https://pxt.azureedge.net/blob/d08e97ec4175dc71d21c6058a0d800eeeb1a8a0f/lzma/lzma_worker-min.js",
+            "smoothie/smoothie_compressed.js": "https://pxt.azureedge.net/blob/1d99c2ee5b93a196114b16ef01bcf4be000c7ede/smoothie/smoothie_compressed.js",
+            "pxtblockly.js": "https://pxt.azureedge.net/blob/d3591bdcb2148b8fb353352beff47fff62952533/pxtblockly.js",
+            "blockly.css": "https://pxt.azureedge.net/blob/2d7b5739d997abbd38c2cedeec9959e64ebd6d1d/blockly.css",
+            "rtlblockly.css": "https://pxt.azureedge.net/blob/721bd09acf32fa45851652451303a548ecbbf14c/rtlblockly.css",
+            "gifjs/gif.js": "https://pxt.azureedge.net/blob/15eaf38ac1eee2b2e4810a1ac13e8dbee035e546/gifjs/gif.js",
+            "qrcode/qrcode.min.js": "https://pxt.azureedge.net/blob/b258d18871877debfef7348f75c2e52b954c053c/qrcode/qrcode.min.js"
+        }
+    </script>
+
+
+
+<div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><script type="text/javascript" src="./MicroCode_files/editor.js.download" async=""></script><script type="text/javascript" src="./MicroCode_files/pxtblockly.js.download" async=""></script><div class="blocklyWidgetDiv"></div><div class="blocklyDropDownDiv" style="opacity: 0; transition: transform 0.25s ease 0s, opacity 0.25s ease 0s;"><div class="blocklyDropDownContent"></div><div class="blocklyDropDownArrow"></div></div><div class="blocklyTooltipDiv"></div><script type="text/javascript" src="./MicroCode_files/fieldeditors.js.download" async=""></script></body></html>
